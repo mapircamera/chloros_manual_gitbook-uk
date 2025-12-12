@@ -1,165 +1,165 @@
-# Monitoring the Processing
+# Моніторинг обробки
 
-Once processing has started, Chloros provides several ways to monitor progress, check for issues, and understand what's happening with your dataset. This page explains how to track your processing and interpret the information Chloros provides.
+Після початку обробки Chloros надає кілька способів моніторингу прогресу, перевірки проблем та розуміння того, що відбувається з вашим набором даних. На цій сторінці пояснюється, як відстежувати обробку та інтерпретувати інформацію, яку надає Chloros.
 
-## Progress Bar Overview
+## Огляд індикатора прогресу
 
-The progress bar in the top header shows real-time processing status and completion percentage.
+Смуга прогресу у верхньому заголовку показує стан обробки в режимі реального часу та відсоток завершення.
 
-### Free Mode Progress Bar
+### Смуга прогресу у вільному режимі
 
-For users without Chloros+ license:
+Для користувачів без ліцензії Chloros+:
 
-**2-Stage Progress Display:**
+**2-етапне відображення прогресу:**
 
-1. **Target Detect** - Finding calibration targets in images
-2. **Processing** - Applying corrections and exporting
+1. **Виявлення цілі** — пошук цілей калібрування на зображеннях
+2. **Обробка** — застосування корекцій та експорт
 
-**Progress bar shows:**
+**Індикатор прогресу показує:**
 
-* Overall completion percentage (0-100%)
-* Current stage name
-* Simple horizontal bar visualization
+* Загальний відсоток завершення (0-100%)
+* Назва поточного етапу
+* Проста візуалізація у вигляді горизонтальної смуги
 
-### Chloros+ Progress Bar
+### Індикатор прогресу Chloros+
 
-For users with Chloros+ license:
+Для користувачів з ліцензією Chloros+:
 
-**4-Stage Progress Display:**
+**4-етапне відображення прогресу:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining images and preparing pipeline
-3. **Calibrating** - Applying vignette and reflectance corrections
-4. **Exporting** - Saving processed files
+1. **Виявлення** - пошук калібрувальних мішеней
+2. **Аналіз** - вивчення зображень і підготовка конвеєра
+3. **Калібрування** - застосування корекцій віньєтки та відбиття
+4. **Експорт** - збереження оброблених файлів
 
-**Interactive Features:**
+**Інтерактивні функції:**
 
-* **Hover over** progress bar to see expanded 4-stage panel
-* **Click** progress bar to freeze/pin the expanded panel
-* **Click again** to unfreeze and auto-hide on mouse leave
-* Each stage shows individual progress (0-100%)
-
-***
-
-## Understanding Each Processing Stage
-
-### Stage 1: Detecting (Target Detection)
-
-**What's happening:**
-
-* Chloros scans images marked with Target checkbox
-* Computer vision algorithms identify the 4 calibration panels
-* Reflectance values extracted from each panel
-* Target timestamps recorded for proper calibration scheduling
-
-**Duration:**
-
-* With marked targets: 10-60 seconds
-* Without marked targets: 5-30+ minutes (scans all images)
-
-**Progress indicator:**
-
-* Detecting: 0% → 100%
-* Number of images scanned
-* Targets found count
-
-**What to watch for:**
-
-* Should complete quickly if targets properly marked
-* If taking too long, targets may not be marked
-* Check Debug Log for "Target found" messages
-
-### Stage 2: Analyzing
-
-**What's happening:**
-
-* Reading image EXIF metadata (timestamps, exposure settings)
-* Determining calibration strategy based on target timestamps
-* Organizing image processing queue
-* Preparing parallel processing workers (Chloros+ only)
-
-**Duration:** 5-30 seconds
-
-**Progress indicator:**
-
-* Analyzing: 0% → 100%
-* Fast stage, usually completes quickly
-
-**What to watch for:**
-
-* Should progress steadily without pauses
-* Warnings about missing metadata will appear in Debug Log
-
-### Stage 3: Calibrating
-
-**What's happening:**
-
-* **Debayering**: Converting RAW Bayer pattern to 3 channels
-* **Vignette correction**: Removing lens edge darkening
-* **Reflectance calibration**: Normalizing with target values
-* **Index calculation**: Computing multispectral indices
-* Processing each image through the full pipeline
-
-**Duration:** Majority of total processing time (60-80%)
-
-**Progress indicator:**
-
-* Calibrating: 0% → 100%
-* Current image being processed
-* Images completed / Total images
-
-**Processing behavior:**
-
-* **Free mode**: Processes one image at a time sequentially
-* **Chloros+ mode**: Processes up to 16 images simultaneously
-* **GPU acceleration**: Significantly speeds up this stage
-
-**What to watch for:**
-
-* Steady progress through image count
-* Check Debug Log for per-image completion messages
-* Warnings about image quality or calibration issues
-
-### Stage 4: Exporting
-
-**What's happening:**
-
-* Writing calibrated images to disk in selected format
-* Exporting multispectral index images with LUT colors
-* Creating camera model subfolders
-* Preserving original filenames with appropriate suffixes
-
-**Duration:** 10-20% of total processing time
-
-**Progress indicator:**
-
-* Exporting: 0% → 100%
-* Files being written
-* Export format and destination
-
-**What to watch for:**
-
-* Disk space warnings
-* File write errors
-* Completion of all configured outputs
+* **Наведіть курсор на** індикатор прогресу, щоб побачити розгорнуту 4-етапну панель
+* **Клацніть** на панелі прогресу, щоб зафіксувати/закріпити розгорнуту панель
+* **Клацніть ще раз**, щоб скасувати фіксацію і автоматично приховати панель при відведенні миші
+* Кожен етап показує індивідуальний прогрес (0-100%)
 
 ***
 
-## Debug Log Tab
+## Розуміння кожного етапу обробки
 
-The Debug Log provides detailed information about processing progress and any issues encountered.
+### Етап 1: Виявлення (виявлення цілей)
 
-### Accessing the Debug Log
+**Що відбувається:**
 
-1. Click the **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> icon in the left sidebar
-2. Log panel opens showing real-time processing messages
-3. Auto-scrolls to show latest messages
+* Chloros сканує зображення, позначені прапорцем «Ціль»
+* Алгоритми комп&#x27;ютерного зору ідентифікують 4 калібрувальні панелі
+* З кожної панелі витягуються значення відбиття
+* Записуються часові мітки цілей для правильного планування калібрування
 
-### Understanding Log Messages
+**Тривалість:**
 
-#### Information Messages (White/Gray)
+* З позначеними цілями: 10-60 секунд
+* Без позначених цілей: 5-30+ хвилин (сканує всі зображення)
 
-Normal processing updates:
+**Індикатор прогресу:**
+
+* Виявлення: 0% → 100%
+* Кількість відсканованих зображень
+* Кількість знайдених цілей
+
+**На що слід звернути увагу:**
+
+* Процес повинен завершитися швидко, якщо цілі позначені належним чином
+* Якщо процес триває занадто довго, цілі можуть бути не позначені
+* Перевірте журнал налагодження на наявність повідомлень «Ціль знайдена»
+
+### Етап 2: Аналіз
+
+**Що відбувається:**
+
+* Зчитування метаданих EXIF зображення (мітки часу, налаштування експозиції)
+* Визначення стратегії калібрування на основі міток часу цілей
+* Організація черги обробки зображень
+* Підготовка паралельних процесорів (тільки Chloros+)
+
+**Тривалість:** 5-30 секунд
+
+**Індикатор прогресу:**
+
+* Аналіз: 0% → 100%
+* Швидкий етап, зазвичай завершується швидко
+
+**На що слід звернути увагу:**
+
+* Прогрес повинен бути стабільним, без пауз
+* Попередження про відсутність метаданих з&#x27;являться в журналі налагодження
+
+### Етап 3: Калібрування
+
+**Що відбувається:**
+
+* **Дебейринг**: перетворення RAW-матриці Байєра в 3 канали
+* **Корекція віньєтування**: видалення затемнення країв об&#x27;єктива
+* **Калібрування відбиття**: нормалізація за допомогою цільових значень
+* **Розрахунок індексу**: обчислення мультиспектральних індексів
+* Обробка кожного зображення через повний конвеєр
+
+**Тривалість:** більша частина загального часу обробки (60-80%)
+
+**Індикатор прогресу:**
+
+* Калібрування: 0% → 100%
+* Поточне зображення обробляється
+* Зображення завершено / Загальна кількість зображень
+
+**Поведінка обробки:**
+
+* **Вільний режим**: Послідовна обробка одного зображення за раз
+* **Режим Chloros+**: Одночасна обробка до 16 зображень
+* **Прискорення за допомогою GPU**: значно прискорює цей етап
+
+**На що слід звернути увагу:**
+
+* Стабільний прогрес за кількістю зображень
+* Перевірте журнал налагодження на наявність повідомлень про завершення обробки кожного зображення
+* Попередження про проблеми з якістю зображення або калібруванням
+
+### Етап 4: Експорт
+
+**Що відбувається:**
+
+* Запис відкаліброваних зображень на диск у вибраному форматі
+* Експорт мультиспектральних індексних зображень із кольорами LUT
+* Створення підпапок для моделей камер
+* Збереження оригінальних імен файлів із відповідними суфіксами
+
+**Тривалість:** 10–20 % від загального часу обробки
+
+**Індикатор прогресу:**
+
+* Експорт: 0 % → 100 %
+* Файли записуються
+* Формат експорту та місце призначення
+
+**На що слід звернути увагу:**
+
+* Попередження про місце на диску
+* Помилки запису файлів
+* Завершення всіх налаштованих виводів
+
+***
+
+## Вкладка «Журнал налагодження»
+
+Журнал налагодження містить детальну інформацію про хід обробки та будь-які проблеми, що виникли.
+
+### Доступ до журналу налагодження
+
+1. Клацніть на піктограму **Журнал налагодження** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> на лівій бічній панелі
+2. Відкриється панель журналу, що відображає повідомлення про обробку в режимі реального часу
+3. Автоматичне прокручування для відображення останніх повідомлень
+
+### Розуміння повідомлень журналу
+
+#### Інформаційні повідомлення (білий/сірий колір)
+
+Звичайні оновлення обробки:
 
 ```
 [INFO] Processing started
@@ -169,9 +169,9 @@ Normal processing updates:
 [INFO] Processing complete
 ```
 
-#### Warning Messages (Yellow)
+#### Попереджувальні повідомлення (жовтий колір)
 
-Non-critical issues that don't stop processing:
+Некритичні проблеми, які не зупиняють обробку:
 
 ```
 [WARN] No GPS data found in IMG_0145.RAW
@@ -179,11 +179,11 @@ Non-critical issues that don't stop processing:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Action:** Review warnings after processing, but don't interrupt
+**Дія:** Перегляньте попередження після обробки, але не переривайте її.
 
-#### Error Messages (Red)
+#### Повідомлення про помилки (Red)
 
-Critical issues that may cause processing to fail:
+Критичні проблеми, які можуть спричинити збій обробки:
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,202 +191,202 @@ Critical issues that may cause processing to fail:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Action:** Stop processing, resolve error, restart
+**Дія:** Припиніть обробку, усуньте помилку, перезапустіть.
 
-### Common Log Messages
+### Загальні повідомлення журналу
 
-| Message                          | Meaning                                | Action Needed                                         |
+| Повідомлення                          | Значення                                | Необхідні дії                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| "Target detected in \[filename]" | Calibration target found successfully  | None - normal                                         |
-| "Processing image X of Y"        | Current progress update                | None - normal                                         |
-| "No targets found"               | No calibration targets detected        | Mark target images or disable reflectance calibration |
-| "Insufficient disk space"        | Not enough storage for output          | Free up disk space                                    |
-| "Skipping corrupted file"        | Image file is damaged                  | Re-copy file from SD card                             |
-| "PPK data applied"               | GPS corrections from .daq file applied | None - normal                                         |
+| «Ціль виявлена в \[ім&#x27;я файлу]» | Ціль калібрування успішно знайдена  | Нічого — нормально                                         |
+| «Обробка зображення X з Y»        | Оновлення поточного прогресу                | Нічого — нормально                                         |
+| «Цілі не знайдено»               | Цілі калібрування не виявлено        | Позначте зображення цілей або вимкніть калібрування відбиття |
+| «Недостатньо місця на диску»        | Недостатньо місця для збереження вихідних даних          | Звільніть місце на диску                                    |
+| «Пропускається пошкоджений файл»        | Файл зображення пошкоджений                  | Скопіюйте файл знову з SD-карти                             |
+| «Застосовано дані PPK»               | Застосовано корекції GPS з файлу .daq | Нічого — нормально                                         |
 
-### Copying Log Data
+### Копіювання даних журналу
 
-To copy log for troubleshooting or support:
+Щоб скопіювати журнал для усунення несправностей або підтримки:
 
-1. Open Debug Log panel
-2. Click **"Copy Log"** button (or right-click → Select All)
-3. Paste into text file or email
-4. Send to MAPIR support if needed
-
-***
-
-## System Resource Monitoring
-
-### CPU Usage
-
-**Free Mode:**
-
-* 1 CPU core at \~100%
-* Other cores idle or available
-* System remains responsive
-
-**Chloros+ Parallel Mode:**
-
-* Multiple cores at 80-100% (up to 16 cores)
-* High overall CPU utilization
-* System may feel less responsive
-
-**To monitor:**
-
-* Windows Task Manager (Ctrl+Shift+Esc)
-* Performance tab → CPU section
-* Look for "Chloros" or "chloros-backend" processes
-
-### Memory (RAM) Usage
-
-**Typical usage:**
-
-* Small projects (< 100 images): 2-4 GB
-* Medium projects (100-500 images): 4-8 GB
-* Large projects (500+ images): 8-16 GB
-* Chloros+ parallel mode uses more RAM
-
-**If memory is low:**
-
-* Process smaller batches
-* Close other applications
-* Upgrade RAM if regularly processing large datasets
-
-### GPU Usage (Chloros+ with CUDA)
-
-When GPU acceleration is enabled:
-
-* NVIDIA GPU shows high utilization (60-90%)
-* VRAM usage increases (requires 4GB+ VRAM)
-* Calibrating stage is significantly faster
-
-**To monitor:**
-
-* NVIDIA System Tray icon
-* Task Manager → Performance → GPU
-* GPU-Z or similar monitoring tool
-
-### Disk I/O
-
-**What to expect:**
-
-* High disk read during Analyzing stage
-* High disk write during Exporting stage
-* SSD significantly faster than HDD
-
-**Performance tip:**
-
-* Use SSD for project folder when possible
-* Avoid network drives for large datasets
-* Ensure disk isn't near capacity (affects write speed)
+1. Відкрийте панель журналу налагодження.
+2. Натисніть кнопку **«Копіювати журнал»** (або клацніть правою кнопкою миші → Вибрати все).
+3. Вставте в текстовий файл або електронний лист.
+4. Надішліть до служби підтримки MAPIR, якщо потрібно.
 
 ***
 
-## Detecting Problems During Processing
+## Моніторинг системних ресурсів
 
-### Warning Signs
+### Використання процесора
 
-**Progress stalls (no change for 5+ minutes):**
+**Вільний режим:**
 
-* Check Debug Log for errors
-* Verify disk space available
-* Check Task Manager to ensure Chloros is running
+* 1 ядро процесора на рівні ~100%
+* Інші ядра не використовуються або доступні
+* Система залишається чутливою
 
-**Error messages appear frequently:**
+**Chloros+ Паралельний режим:**
 
-* Stop processing and review errors
-* Common causes: disk space, corrupted files, memory issues
-* See Troubleshooting section below
+* Кілька ядер на рівні 80-100% (до 16 ядер)
+* Високе загальне використання процесора
+* Система може відчуватися менш чутливою
 
-**System becomes unresponsive:**
+**Для моніторингу:**
 
-* Chloros+ parallel mode using too many resources
-* Consider reducing concurrent tasks or upgrading hardware
-* Free mode is less resource-intensive
+* Windows Диспетчер завдань (Ctrl+Shift+Esc)
+* Вкладка «Продуктивність» → розділ «Процесор»
+* Знайдіть процеси «Chloros» або «chloros-backend»
 
-### When to Stop Processing
+### Використання пам&#x27;яті (RAM)
 
-Stop processing if you see:
+**Типове використання:**
 
-* ❌ "Disk full" or "Cannot write file" errors
-* ❌ Repeated image file corruption errors
-* ❌ System completely frozen (not responding)
-* ❌ Realized wrong settings were configured
-* ❌ Wrong images imported
+* Невеликі проекти (&lt; 100 зображень): 2-4 ГБ
+* Середні проекти (100-500 зображень): 4-8 ГБ
+* Великі проекти (500+ зображень): 8-16 ГБ
+* Chloros+ паралельний режим використовує більше оперативної пам&#x27;яті
 
-**How to stop:**
+**Якщо пам&#x27;яті недостатньо:**
 
-1. Click **Stop/Cancel button** (replaces Start button)
-2. Processing halts, progress is lost
-3. Fix issues and restart from beginning
+* Обробляйте менші партії
+* Закрийте інші програми
+* Оновіть оперативну пам&#x27;ять, якщо регулярно обробляєте великі набори даних
 
-***
+### Використання графічного процесора (Chloros+ з CUDA)
 
-## Troubleshooting During Processing
+Коли ввімкнено прискорення графічного процесора:
 
-### Processing is Very Slow
+* Графічний процесор NVIDIA показує високе використання (60-90%)
+* Використання VRAM збільшується (потрібно 4 ГБ+ VRAM)
+* Етап калібрування відбувається значно швидше
 
-**Possible causes:**
+**Для моніторингу:**
 
-* Unmarked target images (scanning all images)
-* HDD instead of SSD storage
-* Insufficient system resources
-* Many indices configured
-* Network drive access
+* Піктограма NVIDIA в системному треї
+* Диспетчер завдань → Продуктивність → GPU
+* GPU-Z або подібний інструмент моніторингу
 
-**Solutions:**
+### Дисковий ввід-вивід
 
-1. If just started and in Detecting stage: Cancel, mark targets, restart
-2. For future: Use SSD, reduce indices, upgrade hardware
-3. Consider CLI for batch processing large datasets
+**Чого очікувати:**
 
-### "Disk Space" Warnings
+* Висока швидкість читання з диска під час етапу аналізу
+* Висока швидкість запису на диск під час етапу експорту
+* SSD значно швидший за HDD
 
-**Solutions:**
+**Порада щодо продуктивності:**
 
-1. Free up disk space immediately
-2. Move project to drive with more space
-3. Reduce number of indices to export
-4. Use JPG format instead of TIFF (smaller files)
-
-### Frequent "Corrupted File" Messages
-
-**Solutions:**
-
-1. Re-copy images from SD card to ensure integrity
-2. Test SD card for errors
-3. Remove corrupted files from project
-4. Continue processing remaining images
-
-### System Overheating / Throttling
-
-**Solutions:**
-
-1. Ensure adequate ventilation
-2. Clean dust from computer vents
-3. Reduce processing load (use Free mode instead of Chloros+)
-4. Process during cooler times of day
+* За можливості використовуйте SSD для папки проекту
+* Уникайте мережевих дисків для великих наборів даних
+* Переконайтеся, що диск не заповнений (це впливає на швидкість запису)
 
 ***
 
-## Processing Complete Notification
+## Виявлення проблем під час обробки
 
-When processing finishes:
+### Ознаки
 
-* Progress bar reaches 100%
-* **"Processing Complete"** message appears in Debug Log
-* Start button becomes enabled again
-* All output files are in camera model subfolder
+**Прогрес зупинився (немає змін протягом 5+ хвилин):**
+
+* Перевірте журнал налагодження на наявність помилок
+* Перевірте наявність вільного місця на диску
+* Перевірте диспетчер завдань, щоб переконатися, що Chloros працює
+
+**Часто з&#x27;являються повідомлення про помилки:**
+
+* Зупиніть обробку та перегляньте помилки
+* Поширені причини: місце на диску, пошкоджені файли, проблеми з пам&#x27;яттю
+* Див. розділ «Усунення несправностей» нижче
+
+**Система не реагує:**
+
+* Chloros+ у паралельному режимі використовує занадто багато ресурсів
+* Розгляньте можливість зменшення кількості одночасних завдань або оновлення апаратного забезпечення
+* Вільний режим є менш ресурсоємним
+
+### Коли зупиняти обробку
+
+Зупиніть обробку, якщо ви бачите:
+
+* ❌ Помилки «Диск заповнений» або «Неможливо записати файл»
+* ❌ Повторні помилки пошкодження файлів зображень
+* ❌ Система повністю зависла (не реагує)
+* ❌ Виявлено неправильні налаштування
+* ❌ Імпортовано неправильні зображення
+
+**Як зупинити:**
+
+1. Натисніть **кнопку «Зупинити/Скасувати»** (замінює кнопку «Пуск»)
+2. Обробка зупиняється, прогрес втрачається
+3. Виправте проблеми та почніть спочатку
 
 ***
 
-## Next Steps
+## Усунення несправностей під час обробки
 
-Once processing completes:
+### Обробка відбувається дуже повільно
 
-1. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
-2. **Check output folder** - Verify all files exported correctly
-3. **Review Debug Log** - Check for any warnings or errors
-4. **Preview processed images** - Use Image Viewer or external software
+**Можливі причини:**
 
-For information about reviewing and using your processed results, see [Finishing the Processing](finishing-the-processing.md).
+* Непозначені цільові зображення (сканування всіх зображень)
+* HDD замість SSD-накопичувача
+* Недостатні системні ресурси
+* Налаштовано багато індексів
+* Доступ до мережевого диска
+
+**Рішення:**
+
+1. Якщо тільки що розпочато і перебуваєте на етапі виявлення: скасуйте, позначте цілі, перезапустіть
+2. На майбутнє: використовуйте SSD, зменште індекси, оновлюйте апаратне забезпечення
+3. Розгляньте CLI для пакетної обробки великих наборів даних
+
+### Попередження «Місце на диску»
+
+**Рішення:**
+
+1. Негайно звільніть місце на диску
+2. Перемістіть проект на диск з більшим простором
+3. Зменшіть кількість індексів для експорту.
+4. Використовуйте формат JPG замість TIFF (менші файли).
+
+### Часті повідомлення «Пошкоджений файл»
+
+**Рішення:**
+
+1. Перекопіюйте зображення з SD-карти, щоб забезпечити цілісність.
+2. Перевірте SD-карту на наявність помилок.
+3. Видаліть пошкоджені файли з проекту.
+4. Продовжуйте обробку решти зображень.
+
+### Перегрів/стримування системи
+
+**Рішення:**
+
+1. Забезпечте достатню вентиляцію.
+2. Очистіть вентиляційні отвори комп&#x27;ютера від пилу.
+3. Зменште навантаження на обробку (використовуйте режим Free замість Chloros+).
+4. Виконуйте обробку в прохолодні години дня.
+
+***
+
+## Повідомлення про завершення обробки
+
+Коли обробка завершиться:
+
+* Індикатор прогресу досягає 100%
+* У журналі налагодження з&#x27;являється повідомлення **«Обробка завершена»**
+* Кнопка «Пуск» знову стає активною
+* Усі вихідні файли знаходяться в підпапці моделі камери
+
+***
+
+## Наступні кроки
+
+Після завершення обробки:
+
+1. **Перегляньте результати** - Див. [Завершення обробки](finishing-the-processing.md)
+2. **Перевірте папку виводу** — переконайтеся, що всі файли експортовані правильно
+3. **Перегляньте журнал налагодження** — перевірте, чи немає попереджень або помилок
+4. **Перегляньте оброблені зображення** — використовуйте Image Viewer або зовнішнє програмне забезпечення
+
+Інформацію про перегляд і використання оброблених результатів див. у розділі [Завершення обробки](finishing-the-processing.md).

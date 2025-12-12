@@ -1,86 +1,86 @@
-# Index/LUT Sandbox
+# Індекс/LUT Sandbox
 
-The Index/LUT Sandbox is an interactive workspace within the Chloros Image Viewer that allows you to experiment with multispectral index calculations and color visualizations in real-time. This powerful tool helps you test different indices, refine value ranges, and create publication-ready visualizations without reprocessing your entire dataset.
+Індекс/LUT Sandbox — це інтерактивний робочий простір у програмі Chloros Image Viewer, який дозволяє експериментувати з розрахунками мультиспектральних індексів і візуалізацією кольорів у режимі реального часу. Цей потужний інструмент допомагає тестувати різні індекси, уточнювати діапазони значень і створювати готові до публікації візуалізації без повторної обробки всього набору даних.
 
-## What is the Index/LUT Sandbox?
+## Що таке пісочниця індексів/LUT?
 
-### Purpose
+### Призначення
 
-The Sandbox provides:
+Пісочниця надає:
 
-* **Real-time index calculation** - Apply any vegetation index instantly
-* **Interactive LUT adjustment** - Fine-tune color gradients and ranges
-* **Workflow optimization** - Determine best settings before batch processing
+* **Розрахунок індексу в режимі реального часу** — миттєве застосування будь-якого індексу рослинності
+* **Інтерактивне регулювання LUT** — точне налаштування градієнтів і діапазонів кольорів
+* **Оптимізація робочого процесу** — визначення найкращих налаштувань перед пакетною обробкою
 
-### Sandbox vs. Project Processing
+### Пісочниця проти обробки проекту
 
-**Index/LUT Sandbox (Interactive):**
+**Пісочниця індексу/LUT (інтерактивна):**
 
-* Single image at a time
-* Instant feedback
-* Experimental and iterative
-* No permanent changes to files
-* Perfect for exploring and testing
+* Одне зображення за раз
+* Миттєвий зворотний зв&#x27;язок
+* Експериментальна та ітеративна
+* Без постійних змін у файлах
+* Ідеально підходить для дослідження та тестування
 
-**Project Processing (Batch):**
+**Обробка проекту (пакетна):**
 
-* Entire dataset at once
-* Pre-configured settings
-* Permanent output files
-* Time-intensive
-* Best when settings are finalized
+* Весь набір даних одночасно
+* Попередньо налаштовані параметри
+* Постійні вихідні файли
+* Часомісткий
+* Найкраще підходить, коли налаштування остаточно визначені
 
-{% hint style="success" %}
-**Best Workflow**: Use the Sandbox to experiment and find optimal index and LUT settings, then apply those settings during Project Processing for your entire dataset.
+{% hint style=&quot;success&quot; %}
+**Найкращий робочий процес**: Використовуйте пісочницю для експериментів і пошуку оптимальних налаштувань індексу та LUT, а потім застосуйте ці налаштування під час обробки проекту для всього набору даних.
 {% endhint %}
 
 ***
 
-## Working with the Index/LUT Sandbox
+## Робота з пісочницею індексу/LUT
 
-### Understanding Pre-Calculated Indices
+### Розуміння попередньо обчислених індексів
 
-In Chloros, indices can be applied during project processing. To determine which index and LUT settings you want to apply to exports it is easiest to use the image viewer sandbox.
+У Chloros індекси можна застосовувати під час обробки проекту. Щоб визначити, які налаштування індексу та LUT ви хочете застосувати до експорту, найпростіше використовувати пісочницю для перегляду зображень.
 
-The sandbox allows you to:
+Пісочниця дозволяє:
 
-* **Apply new index and color gradients (LUTs)** to visualize the data
-* **Adjust visualization settings** interactively
-* **View** already-calculated index images
-* **Inspect** pixel values at all zoom levels
+* **Застосовувати нові індекси та градієнти кольорів (LUT)** для візуалізації даних
+* **Інтерактивно налаштовувати параметри візуалізації**
+* **Переглядати** вже розраховані індексні зображення
+* **Перевіряти** значення пікселів на всіх рівнях масштабування
 
-### Opening the Sandbox
+### Відкриття пісочниці
 
-The Index/LUT Sandbox is accessed in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar tab:
+Доступ до пісочниці індексів/LUT здійснюється на вкладці **Переглядач зображень** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> бічної панелі:
 
-1. Click an image in the file browser image grid, it opens in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab
-2. Click **the Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab to open the left pop-out sidebar if it's not already open
+1. Клацніть зображення в сітці файлового браузера, воно відкриється у вкладці **Переглядач зображень** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> .
+2. Клацніть вкладку **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> , щоб відкрити лівий висувний бічний панель, якщо вона ще не відкрита
 
-### Selecting an Image to Apply an Index/LUT to
+### Вибір зображення для застосування індексу/LUT
 
-To work with an index in the Image Viewer <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
+Для роботи з індексом у переглядачі зображень <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> пісочниці:
 
-1. **Open an image** from the main image grid by clicking on it
-2. The **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab will then open
-3. Click the **Layer dropdown** (top-right of viewer)
-4. Select the layer from the dropdown:
-   * RAW (Reflectance)
+1. **Відкрийте зображення** з основної сітки зображень, клацнувши на ньому
+2. Відкриється вкладка **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> відкриється вкладка **Переглядач зображень**
+3. Клацніть на **випадаючому меню «Шар»** (у правому верхньому куті переглядача)
+4. Виберіть шар із випадаючого меню:
+   * RAW (відбиття)
 
-### Applying an Index to an Image
+### Застосування індексу до зображення
 
-Once the image is fullscreen and the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar is open:
+Коли зображення відкриється на весь екран і бічна панель **Переглядач зображень** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> відкриється:
 
-1. Check the Index box at the top of the sidebar
-2. Choose your camera's filter from the left dropdown
-3. Choose the desired index formula from the right dropdown
-4. Drag the filter channel color circles to the locations in the index formula below
-5. Once the formula is valid the image will update and show the index values
-6. Move your mouse cursor around to see the values at the cursor's location
-7. Zoom in to see individual pixels and their associated values
+1. Поставте галочку в полі «Індекс» у верхній частині бічної панелі
+2. Виберіть фільтр вашої камери з лівого списку
+3. Виберіть бажану формулу індексу з правого списку
+4. Перетягніть кольорові кола каналів фільтра в місця у формулі індексу нижче
+5. Після того, як формула стане дійсною, зображення оновиться і покаже значення індексу
+6. Переміщайте курсор миші, щоб побачити значення в місці розташування курсора
+7. Збільште масштаб, щоб побачити окремі пікселі та пов&#x27;язані з ними значення.
 
-Each index has a specific value range and meaning:
+Кожен індекс має певний діапазон значень і значення:
 
-#### NDVI Example
+#### NDVI Приклад
 
 ```
 Formula: (NIR - Red) / (NIR + Red)
@@ -96,293 +96,293 @@ Bare soil: 0.0 to 0.2
 Water: -0.1 to 0.1
 ```
 
-For complete index formula documentation, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
+Повну документацію щодо формул індексу див. у розділі [Формули мультиспектральних індексів](../project-settings/multispectral-index-formulas.md).
 
 ***
 
-## Working with LUTs (Look-Up Tables)
+## Робота з LUT (таблицями перегляду)
 
-### What is a LUT?
+### Що таке LUT?
 
-A **Look-Up Table (LUT)** maps numerical index values to colors for visualization:
+**Таблиця перегляду (LUT)** відображає числові значення індексу на кольори для візуалізації:
 
-* **Input**: Index pixel value (e.g., NDVI 0.65)
-* **Output**: RGB color (e.g., bright green)
-* **Purpose**: Make patterns easier to see and interpret
+* **Вхідні дані**: значення пікселя індексу (наприклад, NDVI 0,65)
+* **Вихідні дані**: колір RGB (наприклад, яскраво-зелений)
+* **Мета**: полегшити сприйняття та інтерпретацію візерунків
 
-**Grayscale vs. Color LUT:**
+**Шкала сірих відтінків проти кольорової LUT:**
 
-* Grayscale: Scientific and neutral, shows raw data
-* Color LUT: Intuitive and impactful, highlights patterns and differences
+* Шкала сірих відтінків: наукова та нейтральна, відображає необроблені дані
+* Кольорова LUT: інтуїтивна та ефектна, виділяє візерунки та відмінності
 
-{% hint style="success" %}
-**Visualization Power**: Applying a color LUT to a grayscale index image makes it dramatically easier to identify patterns, anomalies, and areas of interest at a glance.
+{% hint style=&quot;success&quot; %}
+**Можливості візуалізації**: Застосування кольорової LUT до індексного зображення в сірій гамі значно полегшує ідентифікацію візерунків, аномалій та областей, що представляють інтерес, з першого погляду.
 {% endhint %}
 
-### Applying a LUT to an Index Image
+### Застосування LUT до індексного зображення
 
-Once you have an index image showing
+Після отримання індексного зображення, що відображає
 
-1. Click the <img src="../.gitbook/assets/image.png" alt="" data-size="line"> "+Add LUT" button
-2. Select the color gradient
-3. Adjust the clipping min/max end points
-4. Adjust the Clipping Mode
-5. Check the Index box in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar to apply the LUT
+1. Натисніть кнопку <img src="../.gitbook/assets/image.png" alt="" data-size="line"> кнопку «+Додати LUT»
+2. Виберіть колірний градієнт
+3. Налаштуйте мінімальні/максимальні кінцеві точки обрізки
+4. Налаштуйте режим обрізки
+5. Поставте галочку в полі «Індекс» на бічній панелі **Переглядача зображень** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> , щоб застосувати LUT.
 
-### Choosing a Color Gradient
+### Вибір кольорового градієнта
 
-**Selecting a gradient:**
+**Вибір градієнта:**
 
-1. In the LUT panel, locate the **colored gradient bar**
-2. Hover your mouse over it to view available gradient presets
-3. Select desired gradient
-4. The image **updates immediately** with new colors when the Index box is checked
+1. На панелі LUT знайдіть **кольорову смугу градієнта**.
+2. Наведіть на неї курсор миші, щоб переглянути доступні попередні налаштування градієнта.
+3. Виберіть бажаний градієнт.
+4. Зображення **одразу оновлюється** новими кольорами, коли встановлено прапорець «Індекс».
 
-{% hint style="success" %}
-**Best Practice**: For vegetation indices like NDVI, the Red-Yellow-Green gradient is most intuitive because it aligns with natural color associations (green=healthy, yellow=moderate, red=stressed).
+{% hint style=&quot;success&quot; %}
+**Рекомендації**: Для індексів рослинності, таких як NDVI, градієнт Red-Yellow-Green є найбільш інтуїтивним, оскільки він відповідає природним асоціаціям кольорів (зелений = здоровий, жовтий = помірний, червоний = стресовий).
 {% endhint %}
 
-### Adjusting Color Classes
+### Налаштування класів кольорів
 
-The **Classes control** determines how many discrete color steps appear in your gradient:
+**Елемент керування «Класи»** визначає, скільки дискретних кроків кольорів з&#x27;являється у вашому градієнті:
 
-**Class count options:**
+**Варіанти кількості класів:**
 
-* **2-5 classes**: Very broad categories, distinct zones
-* **6-10 classes**: Balanced, good for classification
-* **11-20 classes**: Smooth gradients, continuous appearance
-* **20+ classes**: Near-continuous, maximum smoothness
+* **2–5 класів**: дуже широкі категорії, чіткі зони
+* **6–10 класів**: Збалансовані, добре підходять для класифікації
+* **11-20 класів**: Плавний градієнт, безперервний вигляд
+* **20+ класів**: Майже безперервний, максимальна плавність
 
-**How to adjust:**
+**Як налаштувати:**
 
-1. In the LUT panel, locate the **color swatch squares below the gradient bar**
-2. Adjust the number of classes by adding with the + button
-3. Remove the number of classes by double clicking on a color swatch
-4. The gradient updates **in real-time** on the image
+1. У панелі LUT знайдіть **квадрати зразків кольорів під панеллю градієнта**
+2. Налаштуйте кількість класів, додаючи їх за допомогою кнопки +
+3. Видаліть кількість класів, двічі клацнувши на зразку кольору
+4. Градієнт оновлюється **в режимі реального часу** на зображенні
 
-**Effect on visualization:**
+**Вплив на візуалізацію:**
 
-* **Fewer classes** (3-5): Creates distinct zones, simplified classification, easier to distinguish categories
-* **Medium classes** (6-10): Balanced approach, good for most applications
-* **More classes** (15-20): Smooth transitions, detailed variation, photographic appearance
+* **Менше класів** (3-5): створює чіткі зони, спрощує класифікацію, полегшує розрізнення категорій
+* **Середня кількість класів** (6-10): збалансований підхід, підходить для більшості застосувань
+* **Більше класів** (15-20): плавні переходи, детальні варіації, фотографічний вигляд
 
-**When to use:**
+**Коли використовувати:**
 
-* **Few classes (3-5)**: Presentation slides, classification maps, simple reports
-* **Medium classes (6-10)**: General analysis, balanced detail, standard reports
-* **Many classes (15-20)**: Scientific analysis, detailed inspection, publication-quality outputs
+* **Небагато класів (3-5)**: презентаційні слайди, класифікаційні карти, прості звіти
+* **Середня кількість класів (6-10)**: загальний аналіз, збалансовані деталі, стандартні звіти
+* **Багато класів (15-20)**: науковий аналіз, детальний огляд, результати публікаційної якості
 
-### Fine-Tuning Value Ranges
+### Точне налаштування діапазонів значень
 
-The **value range controls** determine which index values map to which colors in your gradient:
+**Елементи керування діапазоном значень** визначають, які значення індексу відповідають яким кольорам у вашому градієнті:
 
-**Range controls in LUT panel:**
+**Елементи керування діапазоном на панелі LUT:**
 
-* **Minimum value**: Lower bound of the color scale
-* **Maximum value**: Upper bound of the color scale
-* **Intermediate values**: Automatically distributed between min and max (based on class count)
+* **Мінімальне значення**: нижня межа колірної шкали
+* **Максимальне значення**: верхня межа кольорової шкали
+* **Проміжні значення**: автоматично розподіляються між мінімальним і максимальним значеннями (на основі кількості класів)
 
-#### Adjusting Min/Max Values
+#### Налаштування мінімальних/максимальних значень
 
-**To adjust value ranges:**
+**Щоб налаштувати діапазони значень:**
 
-1. In the LUT panel, locate the **Min Value** and **Max Value** input fields
-2. Click the **Min Value** field
-3. Type the desired minimum value (e.g., `0.2`)
-4. Press **Enter** or click outside the field
-5. Repeat for **Max Value** field (e.g., `0.9`)
-6. The visualization **updates immediately**
+1. На панелі LUT знайдіть поля введення **Мінімальне значення** та **Максимальне значення**
+2. Клацніть поле **Мінімальне значення**
+3. Введіть бажане мінімальне значення (наприклад, `0.2`)
+4. Натисніть **Enter** або клацніть поза полем
+5. Повторіть для поля **Максимальне значення** (наприклад, `0.9`)
+6. Візуалізація **одразу оновлюється**
 
-{% hint style="info" %}
-**Auto-Scaling**: When you first apply a LUT, Chloros automatically sets the min/max to the actual data range in the image. You can then narrow this range to focus on specific value ranges of interest.
+{% hint style=&quot;info&quot; %}
+**Автоматичне масштабування**: коли ви вперше застосовуєте LUT, Chloros автоматично встановлює мінімальне/максимальне значення відповідно до фактичного діапазону даних на зображенні. Потім ви можете звузити цей діапазон, щоб зосередитися на конкретних діапазонах значень, що вас цікавлять.
 {% endhint %}
 
-**Example NDVI range adjustments:**
+**Приклад NDVI коригування діапазону:**
 
-* **Full range**: `-1.0` to `1.0` (show all possible values)
-* **Vegetation-focused**: `0.2` to `0.9` (exclude bare soil and water)
-* **Healthy vegetation only**: `0.5` to `0.9` (highlight only vigorous plants)
-* **Stress detection**: `0.2` to `0.5` (emphasize problem areas)
-* **Custom range**: Adjust based on your observed pixel values
+* **Повний діапазон**: `-1.0` до `1.0` (показати всі можливі значення)
+* **Зосередження на рослинності**: `0.2` до `0.9` (виключити голий ґрунт і воду)
+* **Тільки здорова рослинність**: `0.5` до `0.9` (виділити тільки сильні рослини)
+* **Виявлення стресу**: `0.2` до `0.5` (підкреслити проблемні ділянки)
+* **Налаштований діапазон**: налаштувати на основі спостережуваних значень пікселів
 
-**Why adjust ranges?**
+**Навіщо налаштовувати діапазони?**
 
-* **Increase contrast** in your area of interest
-* **Exclude irrelevant values** (e.g., water bodies, bare soil)
-* **Standardize visualization** across multiple images or dates
-* **Emphasize subtle differences** within a narrow value range
+* **Збільшити контраст** у ділянці, що вас цікавить
+* **Виключіть нерелевантні значення** (наприклад, водойми, голий ґрунт)
+* **Стандартизуйте візуалізацію** для декількох зображень або дат
+* **Підкресліть тонкі відмінності** у вузькому діапазоні значень
 
-### Clipping Out-of-Range Values
+### Обрізання значень, що виходять за межі діапазону
 
-When pixel values fall outside your defined min/max range, you can control how they're displayed using **clipping modes**.
+Коли значення пікселів виходять за межі визначеного мінімального/максимального діапазону, ви можете контролювати спосіб їх відображення за допомогою **режимів обрізання**.
 
-#### **Available clipping mode options:**
+#### **Доступні опції режиму обрізання:**
 
-#### 1. Minimum and Maximum
+#### 1. Мінімум і максимум
 
-* Pixels **below minimum** → display using the **first color** in gradient (e.g., red)
-* Pixels **above maximum** → display using the **last color** in gradient (e.g., green)
-* **Use case**: Emphasize extremes, show full data range with saturated colors at limits
-* **Example**: NDVI values below 0.2 all appear red, values above 0.9 all appear green
+* Пікселі **нижче мінімуму** → відображаються за допомогою **першого кольору** в градієнті (наприклад, червоного)
+* Пікселі **вище максимуму** → відображаються за допомогою **останнього кольору** в градієнті (наприклад, зеленого)
+* **Приклад використання**: Підкресліть крайні значення, покажіть повний діапазон даних із насиченими кольорами на межі
+* **Приклад**: значення NDVI нижче 0,2 відображаються червоним кольором, значення вище 0,9 відображаються зеленим кольором
 
-#### 2. Transparent Background
+#### 2. Прозорий фон
 
-* Pixels **outside the range** become **fully transparent**
-* Only pixels **within range** show color gradient
-* **Use case**: GIS overlay, isolating specific value ranges, highlighting only areas of interest
-* **Example**: Show only NDVI 0.4-0.7 in color, everything else transparent
+* Пікселі **поза діапазоном** стають **повністю прозорими**
+* Тільки пікселі **в межах діапазону** відображають градієнт кольорів
+* **Випадок використання**: накладення ГІС, виділення певних діапазонів значень, виділення тільки областей, що представляють інтерес
+* **Приклад**: Показати тільки NDVI 0,4-0,7 у кольорі, все інше прозоре
 
-{% hint style="warning" %}
-**Transparency Limitation**: Transparent pixels will appear as the background color in the viewer. When exported during processing, transparency is preserved in PNG format but not in JPG.
+{% hint style=&quot;warning&quot; %}
+**Обмеження прозорості**: прозорі пікселі будуть відображатися як колір фону в переглядачі. При експорті під час обробки прозорість зберігається у форматі PNG, але не у форматі JPG.
 {% endhint %}
 
-#### 3. Index Background
+#### 3. Індекс фону
 
-* Pixels **outside range** display in **grayscale** (showing raw index values)
-* Pixels **within range** show **color gradient**
-* **Use case**: Subtle highlighting, maintain context while emphasizing areas of interest
-* **Example**: Color-highlight stressed vegetation (NDVI 0.3-0.5) while showing healthy areas in gray
+* Пікселі **поза діапазоном** відображаються в **відтінках сірого** (показують необроблені значення індексу)
+* Пікселі **в межах діапазону** показують **градієнт кольорів**
+* **Випадок використання**: тонке виділення, збереження контексту при підкресленні областей, що представляють інтерес
+* **Приклад**: кольорове виділення стресованої рослинності (NDVI 0,3-0,5) з відображенням здорових ділянок у сірому кольорі
 
-#### 4. Original Background
+#### 4. Оригінальний фон
 
-* Pixels **outside range** display the **original multispectral image**
-* Pixels **within range** show **color gradient**
-* **Use case**: Most intuitive - combines natural image context with analytical color overlay
-* **Example**: See the actual field/crop appearance with color-coded stress areas overlaid
+* Пікселі **поза діапазоном** відображають **оригінальне мультиспектральне зображення**
+* Пікселі **в межах діапазону** відображають **колірний градієнт**
+* **Приклад використання**: Найбільш інтуїтивний — поєднує природний контекст зображення з аналітичним кольоровим накладенням
+* **Приклад**: Перегляд фактичного вигляду поля/посівів з накладеними кольоровими позначками стресових ділянок
 
-### Choosing the Right Clipping Mode
+### Вибір правильного режиму обрізки
 
-| Clipping Mode              | Best For                                   | Visualization Style          |
+| Режим обрізки              | Найкраще підходить для                                   | Стиль візуалізації          |
 | -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimum and Maximum**    | Full data display, scientific analysis     | All pixels colored           |
-| **Transparent Background** | GIS overlays, isolating specific ranges    | Color on range, blank beyond |
-| **Index Background**       | Subtle emphasis, maintaining data context  | Color on range, gray beyond  |
-| **Original Background**    | Reports, presentations, intuitive analysis | Color on range, photo beyond |
+| **Мінімальне та максимальне**    | Повний вигляд даних, науковий аналіз     | Всі пікселі кольорові           |
+| **Прозорий фон** | Накладення ГІС, виділення певних діапазонів    | Колір у діапазоні, порожній поза ним |
+| **Фон індексу**       | Незначне виділення, збереження контексту даних  | Колір у діапазоні, сірий поза ним  |
+| **Оригінальний фон**    | Звіти, презентації, інтуїтивний аналіз | Колір у діапазоні, фото поза ним |
 
-### Creating Custom LUT Colors
+### Створення власних кольорів LUT
 
-For full control over your visualization, you can create **custom color gradients** by editing individual color stops.
+Для повного контролю над візуалізацією ви можете створити **власні градієнти кольорів**, редагуючи окремі зупинки кольорів.
 
-**To create a custom gradient:**
+**Щоб створити власний градієнт:**
 
-1. In the LUT panel, locate the **gradient preview bar**
-2. Look for **color swatch squares** below the gradient
-3. **Click a color stop** to select it
-4. A **color picker** opens
-5. Choose a new color using:
-   * **Color wheel**: Visual color selection
-   * **RGB/HSV sliders**: Precise color control
-   * **Hex code entry**: Exact color specification (e.g., `#FF0000` for red)
-6. Click off the color picker **to apply the new color**
-7. The gradient **updates immediately** on the image
+1. На панелі LUT знайдіть **панель попереднього перегляду градієнта**
+2. Знайдіть **квадрати зразків кольорів** під градієнтом
+3. **Клацніть на колірній зупинці**, щоб вибрати її
+4. Відкриється **палітра кольорів**
+5. Виберіть новий колір за допомогою:
+   * **Колірного кола**: візуальний вибір кольору
+   * **Повзунків RGB/HSV**: точне регулювання кольору
+   * **Введення шестнадцяткового коду**: точна специфікація кольору (наприклад, `#FF0000` для червоного)
+6. Клацніть поза палітрою кольорів, **щоб застосувати новий колір**
+7. Градієнт **негайно оновлюється** на зображенні
 
-**Adding or removing color stops:**
+**Додавання або видалення зупинок кольору:**
 
-* **Add a stop**: Click the + icon to add a new swatch at the end
-* **Remove a stop**: Double click the color square to remove the swatch
+* **Додати зупинку**: клацніть значок +, щоб додати новий зразок в кінці
+* **Видалити зупинку**: двічі клацніть квадрат кольору, щоб видалити зразок
 
-**Customization strategies:**
+**Стратегії налаштування:**
 
-* **Invert gradient**: Flip color order to reverse the meaning (e.g., green=low, red=high)
-* **Brand colors**: Match your organization's color palette for reports
-* **Colorblind-friendly**: Use orange-blue or purple-yellow combinations
-* **Print optimization**: Choose colors that work in both color and grayscale printing
-* **Multi-threshold**: Use distinct colors at specific value thresholds for classification
+* **Інвертувати градієнт**: Змініть порядок кольорів, щоб змінити значення (наприклад, зелений = низький, червоний = високий)
+* **Кольори бренду**: підберіть кольори для звітів відповідно до колірної палітри вашої організації
+* **Придатність для людей з кольоровою сліпотою**: використовуйте поєднання оранжевого та синього або фіолетового та жовтого кольорів
+* **Оптимізація друку**: вибирайте кольори, які підходять як для кольорового, так і для чорно-білого друку
+* **Багатопороговий**: використовуйте різні кольори для класифікації за певними пороговими значеннями
 
-{% hint style="info" %}
-**Saving Custom Gradients**: Custom gradients can be saved and reused. Click the save icon in the LUT panel to preserve your custom color schemes for future use.
+{% hint style=&quot;info&quot; %}
+**Збереження налаштованих градієнтів**: налаштовані градієнти можна зберегти та використовувати повторно. Клацніть піктограму збереження на панелі LUT, щоб зберегти налаштовані колірні схеми для подальшого використання.
 {% endhint %}
 
 ***
 
-## Interactive Workflow
+## Інтерактивний робочий процес
 
-### Real-Time Updates
+### Оновлення в режимі реального часу
 
-All LUT adjustments in the sandbox update the image **instantly and interactively**:
+Усі налаштування LUT у пісочниці оновлюють зображення **миттєво та інтерактивно**:
 
-* **Switch layer** → Image changes immediately
-* **Select gradient** → Colors update instantly
-* **Adjust value range** → Contrast changes in real-time
-* **Change classes** → Gradient smoothness updates immediately
-* **Modify clipping** → Background display changes instantly
-* **Edit colors** → Custom gradient applies immediately
+* **Перемикання шару** → Зображення змінюється негайно
+* **Вибрати градієнт** → Кольори оновлюються миттєво
+* **Налаштувати діапазон значень** → Контраст змінюється в режимі реального часу
+* **Змінити класи** → Плавність градієнта оновлюється негайно
+* **Змінити обрізку** → Відображення фону змінюється миттєво
+* **Редагувати кольори** → Налаштований градієнт застосовується негайно
 
-**No "Apply" button needed** - all changes are live and interactive!
+**Не потрібно натискати кнопку «Застосувати»** — всі зміни відбуваються в режимі реального часу та інтерактивно!
 
-{% hint style="success" %}
-**Live Feedback**: The instant visual feedback allows you to rapidly experiment with different settings until you find the optimal visualization for your analysis needs.
+{% hint style=&quot;success&quot; %}
+**Миттєвий зворотний зв&#x27;язок**: Миттєвий візуальний зворотний зв&#x27;язок дозволяє швидко експериментувати з різними налаштуваннями, поки не знайдете оптимальну візуалізацію для своїх потреб аналізу.
 {% endhint %}
 
-### Iterative Refinement Workflow
+### Ітеративний робочий процес вдосконалення
 
-**Typical LUT optimization workflow:**
+**Типовий робочий процес оптимізації LUT:**
 
-1. **Select index layer** (e.g., RAW (Reflectance))
-2. **Apply index** - Choose camera filter and index formula, drag colored circles to appropriate location in the index formula
-3. **Apply LUT gradient** - Start with Red-Yellow-Green preset
-4. **Inspect pixel values** - Move cursor around, note value ranges
-5. **Adjust min/max** - Narrow to focus on vegetation (e.g., 0.2 to 0.9)
-6. **Choose clipping** - Try "Original Background" for context
-7. **Refine colors** - Customize gradient if needed for specific emphasis
-8. **Finalize settings** - Document settings and copy to Project Settings for export processing
+1. **Виберіть індексний шар** (наприклад, RAW (відбиття))
+2. **Застосувати індекс** - Виберіть фільтр камери та формулу індексу, перетягніть кольорові кола у відповідне місце у формулі індексу
+3. **Застосувати градієнт LUT** - Почніть з попереднього налаштування Red-Yellow-Green
+4. **Перевірити значення пікселів** - Переміщайте курсор, звертаючи увагу на діапазони значень
+5. **Налаштуйте мінімум/максимум** - Звузьте, щоб зосередитися на рослинності (наприклад, від 0,2 до 0,9)
+6. **Виберіть обрізку** - Спробуйте «Оригінальний фон» для контексту
+7. **Уточніть кольори** - Налаштуйте градієнт, якщо потрібно для конкретного акценту
+8. **Завершіть налаштування** - Задокументуйте налаштування та скопіюйте їх до налаштувань проекту для обробки експорту
 
-### Pixel Value Inspection
+### Перевірка значень пікселів
 
-Understanding actual pixel values is crucial for setting effective LUT ranges:
+Розуміння фактичних значень пікселів є надзвичайно важливим для встановлення ефективних діапазонів LUT:
 
-**How to inspect values:**
+**Як перевірити значення:**
 
-1. Pixel values show when the image has either the Index, or both the Index and LUT **boxes checked**.
-2. **Move your cursor** over different areas of the image
-3. **Observe pixel values** displayed in the legend as you hover
-4. Zoom in to see individual pixels highlighted with a floating value
-5. **Take notes** of value ranges for different features:
-   * **Healthy vegetation**: e.g., NDVI 0.55-0.85
-   * **Stressed vegetation**: e.g., NDVI 0.30-0.50
-   * **Bare soil**: e.g., NDVI 0.05-0.25
-   * **Water** (if present): e.g., NDVI -0.05 to 0.10
+1. Значення пікселів відображаються, коли для зображення **відмічено** поле «Індекс» або поля «Індекс» і «LUT».
+2. **Перемістіть курсор** по різних ділянках зображення.
+3. **Спостерігайте за значеннями пікселів**, що відображаються в легенді під час наведення курсору.
+4. Збільште масштаб, щоб побачити окремі пікселі, виділені плаваючим значенням.
+5. **Запишіть** діапазони значень для різних характеристик:
+   * **Здорова рослинність**: наприклад, NDVI 0,55-0,85
+   * **Рослинність, що зазнає стресу**: наприклад, NDVI 0,30-0,50
+   * **Гола земля**: наприклад, NDVI 0,05-0,25
+   * **Вода** (якщо є): наприклад, NDVI -0,05 до 0,10
 
-**Using pixel values to set LUT ranges:**
+**Використання значень пікселів для встановлення діапазонів LUT:**
 
-After inspecting pixel values, adjust your LUT min/max accordingly:
+Після перевірки значень пікселів відповідно відрегулюйте мінімальне/максимальне значення LUT:
 
-**Example scenario:**
+**Приклад сценарію:**
 
-* **Observation**: Soil values = 0.05-0.25, Stressed = 0.25-0.50, Healthy = 0.50-0.85
-* **Goal**: Visualize only plant health (exclude soil)
-* **LUT settings**: Min = `0.25`, Max = `0.85`
-* **Clipping**: "Original Background" to see soil in natural color
-* **Result**: Color gradient only applies to vegetation, soil shows as original image
+* **Спостереження**: Значення ґрунту = 0,05-0,25, Стресовий стан = 0,25-0,50, Здоровий стан = 0,50-0,85
+* **Мета**: візуалізувати тільки стан рослин (виключити ґрунт)
+* **Налаштування LUT**: мінімум = `0.25`, максимум = `0.85`
+* **Обрізка**: «Оригінальний фон», щоб побачити ґрунт у природному кольорі
+* **Результат**: Колірний градієнт застосовується тільки до рослинності, ґрунт відображається як оригінальне зображення
 
-{% hint style="info" %}
-**Dynamic Range**: Different crops, seasons, and growth stages will have different value ranges. Always inspect pixel values in your specific dataset before setting LUT ranges.
+{% hint style=&quot;info&quot; %}
+**Динамічний діапазон**: різні культури, сезони та стадії росту матимуть різні діапазони значень. Завжди перевіряйте значення пікселів у вашому конкретному наборі даних перед встановленням діапазонів LUT.
 {% endhint %}
 
 ***
 
-## Custom Indices (Chloros+)
+## Настроювані індекси (Chloros+)
 
-### Creating Custom Index Formulas
+### Створення формул користувацьких індексів
 
-{% hint style="info" %}
-**Where to Create**: Custom indices can be configured in **Project Settings** before processing, as well as in the Image Viewer sandbox sidebar.
+{% hint style=&quot;info&quot; %}
+**Де створювати**: Користувацькі індекси можна налаштувати в **Налаштуваннях проекту** перед обробкою, а також у бічній панелі пісочниці Image Viewer.
 {% endhint %}
 
-**To create a custom index:**
+**Щоб створити користувацький індекс:**
 
-1. **Open Project Settings** (before processing) or Image Viewer sandbox sidebar
-2. Navigate to the **Index formula dropdown**
-3. Look for **"Custom"** option (must be logged in with Chloros+ license)
-4. **Define your formula** using band variables:
-   * Band names: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, etc.
-   * Operators: `+`, `-`, `*`, `/`, `^` (exponent)
-   * Functions: `sqrt()`, `abs()`, etc. (if supported)
-   * Parentheses: `()` for order of operations
-5. **Name your index** (e.g., "MyIndex" or "CustomNDVI")
-6. **Save the configuration**
+1. **Відкрийте налаштування проекту** (перед обробкою) або бічну панель пісочниці Image Viewer
+2. Перейдіть до **випадаючого меню формули індексу**
+3. Знайдіть опцію **«Custom»** (необхідно увійти з ліцензією Chloros+)
+4. **Визначте свою формулу**, використовуючи змінні діапазону:
+   * Назви діапазонів: `NIR`, `Red`, `Green`, `Blue`, `RedEdge` тощо.
+   * Оператори: `+`, `-`, `*`, `/`, `^` (експонента)
+   * Функції: `sqrt()`, `abs()` тощо (якщо підтримується)
+   * Дужки: `()` для порядку операцій
+5. **Назвіть свій індекс** (наприклад, «MyIndex» або «CustomNDVI»)
+6. **Збережіть конфігурацію**
 
-**Example custom formulas:**
+**Приклади власних формул:**
 
 ```
 Modified NDVI with offset:
@@ -398,22 +398,22 @@ Exponential index:
 (NIR / Red) ^ 2
 ```
 
-{% hint style="warning" %}
-**Formula Validation**: Ensure your formula uses bands available in your camera. For example, RedEdge is only available on cameras with a RedEdge filter.
+{% hint style=&quot;warning&quot; %}
+**Перевірка формули**: Переконайтеся, що ваша формула використовує діапазони, доступні у вашій камері. Наприклад, RedEdge доступна тільки на камерах з фільтром RedEdge.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Наступні кроки
 
-Now that you understand the Index/LUT Sandbox:
+Тепер, коли ви розумієте, як працює пісочниця індексів/LUT:
 
-* **Apply to processing**: Use discovered settings in [Project Settings](../project-settings/page-2.md)
-* **Batch process**: Apply optimized indices to full datasets
-* **Learn more**: Read [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md)
+* **Застосувати до обробки**: Використовуйте виявлені налаштування в [Налаштуваннях проекту](../project-settings/project-settings.md)
+* **Пакетна обробка**: Застосуйте оптимізовані індекси до повних наборів даних
+* **Дізнатися більше**: Прочитайте [Формули мультиспектральних індексів](../project-settings/multispectral-index-formulas.md)
 
-Related documentation:
+Пов&#x27;язана документація:
 
-* [**Image Layers**](image-layers.md) - Layer management and visualization
-* [**Opening an Image Full Screen**](page-3.md) - Image Viewer basics
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Full processing workflow
+* [**Шари зображень**](image-layers.md) — управління шарами та візуалізація
+* [**Відкриття зображення на весь екран**](opening-an-image-full-screen.md) — основи роботи з переглядачем зображень
+* [**Обробка зображень (GUI)**](../processing-images-gui/adding-files-to-a-project.md) — повний робочий процес обробки

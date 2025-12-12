@@ -1,43 +1,39 @@
-# Chloros+ Login
+# Chloros+ Вхід
 
-## Chloros and Chloros (Browser) Login
+## Chloros та Chloros (браузер) Вхід
 
-The user <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sidebar menu allows you to log into your Chloros+ account and unlock additional features.
+Користувацький <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> бокове меню дозволяє увійти в обліковий запис Chloros+ та розблокувати додаткові функції.
 
-When logged in your account details will be shown:
+Після входу в систему будуть показані дані вашого облікового запису:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Вхід
 
-## CLI Login
+Увійдіть за допомогою своїх облікових даних Chloros+, щоб увімкнути обробку CLI.
 
-Login with your Chloros+ credentials to enable CLI processing.
-
-**Syntax:**
+**Синтаксис:**
 
 ```bash
 chloros-cli login <email> <password>
 ```
 
-**Example:**
+**Приклад:**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style="warning" %}
-**Special Characters**: Use single quotes around passwords containing characters like `$`, `!`, or spaces.
+{% hint style=&quot;warning&quot; %}
+**Спеціальні символи**: використовуйте одинарні лапки навколо паролів, що містять такі символи, як `$`, `!` або пробіли.
 {% endhint %}
 
-**Output:**
+**Вихідні дані:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Термін дії плану
 
-### Plan Expiration
+Термін дії плану в графічному інтерфейсі користувача показує, коли ваша ліцензія стане недійсною. Для щомісячних передплат термін дії закінчується в кінці місяця. Для річних передплат термін дії закінчується через рік після початку передплати. Для перевірки ліцензії необхідне щомісячне підключення до Інтернету з 30-денним пільговим періодом.
 
-The plan expiration in the GUI shows when your license will become invalid. For recurring monthly subscriptions the expiration is at the end of the month. For yearly subscriptions it is a year after you started the subscription. The license check requires a monthly internet connection to verify, with a 30 day grace period.
+### Обмеження кількості пристроїв
 
-### Device Limit
+Кожен план Chloros+ пропонує різну кількість зареєстрованих пристроїв. Кожен пристрій, на який ви входите за допомогою облікового запису Chloros+, буде враховуватися у кількості зареєстрованих пристроїв. Ви можете перейменувати та видалити пристрій на сторінці облікового запису MAPIR Cloud.
 
-Each Chloros+ plan offers a different number of registered devices. Each device you log into with a Chloros+ account will count towards your number of registered devices. You can rename and remove a device on your MAPIR Cloud account page.
-
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ Plan</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Devices Supported</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">План Chloros</th><th align="center">COPPER</th><th align="center">БРОНЗ</th><th align="center">СІЛЬ</th><th align="center">ЗОЛОТО</th></tr></thead><tbody><tr><td align="right">Підтримувані пристрої</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

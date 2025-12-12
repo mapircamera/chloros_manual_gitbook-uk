@@ -4,21 +4,21 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/output-image-formats
 ---
 
-# Output Image Formats
+# Формати вихідних зображень
 
-### TIFF (16-bit)
+### TIFF (16-бітний)
 
-16-bit (pixel digital number 0 - 65535) TIFF (.tif) format output.
+16-бітний (цифрове значення пікселя 0 - 65535) TIFF (.tif) формат виводу.
 
-### TIFF (32-bit, Percent %)
+### TIFF (32-біт, відсоток %)
 
-32-bit (pixel float 0.0 - 1.0) TIFF (.tif) format output. Pixel values represent reflectance percentages where 0.0 = 0% and 1.0 = 100%.
+32-біт (плаваюча точка пікселя 0,0 - 1,0) Вихідний формат TIFF (.tif). Значення пікселів представляють відсотки відбиття, де 0,0 = 0% і 1,0 = 100%.
 
-### **JPG (8-bit)**
+### **JPG (8-біт)**
 
-8-bit (pixel digital number 0 -255) JPG (.jpg) format output.
+8-бітний (цифрове значення пікселя 0 -255) вихідний формат JPG (.jpg).
 
-### **PNG (8-bit)**
+### **PNG (8-біт)**
 
-8-bit (pixel digital number 0 - 255) PNG (.png) format output. Lossless compression suitable for web viewing and visualization.
+Вихідний формат PNG (.png) з 8-бітовим (цифрове значення пікселя 0 - 255) стисненням. Безвтратне стиснення, придатне для перегляду та візуалізації в Інтернеті.
 

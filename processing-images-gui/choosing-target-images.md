@@ -1,221 +1,221 @@
-# Choosing Target Images
+# Вибір цільових зображень
 
-Marking which images contain calibration targets is a crucial step that significantly speeds up the Chloros processing pipeline. By pre-selecting target images, you eliminate the need for Chloros to scan every image in your dataset for calibration targets.
+Позначення зображень, що містять калібрувальні цілі, є важливим кроком, який значно прискорює обробку Chloros. Завдяки попередньому вибору цільових зображень, Chloros не потрібно сканувати кожне зображення у вашому наборі даних для пошуку калібрувальних цілей.
 
-## Why Mark Target Images?
+## Навіщо позначати цільові зображення?
 
-### Processing Speed
+### Швидкість обробки
 
-Without marking target images, Chloros must:
+Без позначення цільових зображень Chloros повинен:
 
-* Scan every single image in your project
-* Run target detection algorithms on each image
-* Check hundreds or thousands of images unnecessarily
+* Сканувати кожне зображення у вашому проекті
+* Запускати алгоритми виявлення цілей на кожному зображенні
+* Непотрібно перевіряти сотні або тисячі зображень
 
-**Result**: Processing can take significantly longer, especially for large datasets.
+**Результат**: Обробка може зайняти значно більше часу, особливо для великих наборів даних.
 
-### With Marked Target Images
+### З позначеними цільовими зображеннями
 
-When you check the Target column for specific images:
+Коли ви перевіряєте стовпець «Ціль» для конкретних зображень:
 
-* Chloros only scans the checked images for targets
-* Target detection completes much faster
-* Overall processing time is greatly reduced
+* Chloros сканує лише позначені зображення на наявність цілей
+* Виявлення цілей відбувається набагато швидше
+* Загальний час обробки значно скорочується
 
-{% hint style="success" %}
-**Speed Improvement**: Marking 2-3 target images in a 500-image dataset can reduce target detection time from 30+ minutes to under 1 minute.
+{% hint style=&quot;success&quot; %}
+**Прискорення роботи**: Позначення 2-3 цільових зображень у наборі даних із 500 зображень може скоротити час виявлення цілей із понад 30 хвилин до менше ніж 1 хвилини.
 {% endhint %}
 
 ***
 
-## How to Mark Target Images
+## Як позначити цільові зображення
 
-### Step 1: Identify Your Target Images
+### Крок 1: Визначте цільові зображення
 
-Look through your imported images in the File Browser and identify which images contain calibration targets.
+Перегляньте імпортовані зображення в браузері файлів і визначте, які зображення містять калібрувальні цілі.
 
-**Common scenarios:**
+**Типові сценарії:**
 
-* **Pre-capture target**: Captured before starting the session
-* **Post-capture target**: Captured after completing the session
-* **In-field targets**: Targets placed within the capture area
-* **Multiple targets**: 2-3 target images per session (recommended)
+* **Ціль перед зйомкою**: знята до початку сеансу
+* **Ціль після зйомки**: знята після завершення сеансу
+* **Цілі в полі**: цілі, розміщені в зоні зйомки
+* **Кілька цілей**: 2–3 цільові зображення на сеанс (рекомендовано)
 
-### Step 2: Check the Target Column
+### Крок 2: Перевірте стовпець «Цільове зображення»
 
-For each image containing a calibration target:
+Для кожного зображення, що містить калібрувальне цільове зображення:
 
-1. Locate the image in the File Browser table
-2. Find the **Target** column (rightmost column)
-3. Click the checkbox in the Target column for that image
-4. Repeat for all images containing targets
+1. Знайдіть зображення в таблиці файлового браузера.
+2. Знайдіть стовпець **«Цільове зображення»** (крайній правий стовпець).
+3. Встановіть прапорець у стовпці «Цільове зображення» для цього зображення.
+4. Повторіть ці дії для всіх зображень, що містять цільові зображення.
 
-### Step 3: Verify Your Selection
+### Крок 3: Перевірте свій вибір
 
-Before processing, double-check:
+Перед обробкою ще раз перевірте:
 
-* [ ] All images with calibration targets are checked
-* [ ] No non-target images are accidentally checked
-* [ ] Targets are clearly visible in checked images
-
-***
-
-## Best Practices for Target Images
-
-### Target Capture Guidelines
-
-**Timing:**
-
-* Capture target images immediately before and throughout your capture session
-* Within the same lighting conditions as your DAQ light sensor
-* Ideally capture target images as often as possible for the best results. Otherwise, the light sensor data will be used to adjust the calibration over time.
-
-**Camera Position:**
-
-* Hold camera above target such that is is centered and fills around 40-60% of the image center.
-* Keep camera parallel/nadir to target surface
-
-**Lighting:**
-
-* Same ambient lighting as your DAQ light sensor
-* Avoid shadows on the target surfaces
-* Don't block your light source with your body, vehicle or vegetation
-* Overcast conditions provide most consistent results
-
-**Target Condition:**
-
-* Keep target panels clean and dry
-* All 4 panels should be clearly visible and unobstructed
-* Targets perpendicular/nadir to the light source if possible
-
-### How Many Target Images?
-
-**Minimum:** 1 target image per session. **Recommended:** 3-5 target images per session.
-
-**Best practice schedule:**
-
-* 3-5 images captured shortly after the light sensor is recording
-* Rotate the camera between captures for the best results
-* Optional: periodically mid-session if lighting conditions change constantly
+* [ ] Всі зображення з цілями калібрування відмічені
+* [ ] Жодне зображення, що не є ціллю, не відмічене випадково
+* [ ] Цілі чітко видно на відмічених зображеннях
 
 ***
 
-## Working with Multiple Cameras
+## Найкращі практики для зображень цілей
 
-### Dual-Camera Setups
+### Вказівки щодо зйомки цілей
 
-If using two MAPIR cameras simultaneously (e.g., Survey3W RGN + Survey3N OCN):
+**Час:**
 
-1. Capture target images with **both cameras** at the same time
-2. Use the **same physical target** for both cameras
-3. Mark target images for **both camera types** in the File Browser
-4. Chloros will use appropriate targets for each camera's calibration
+* Знімайте зображення цілей безпосередньо перед сеансом зйомки та протягом нього
+* У тих самих умовах освітлення, що й датчик освітлення DAQ
+* Для досягнення найкращих результатів ідеально знімати зображення міток якомога частіше. В іншому випадку для коригування калібрування з часом будуть використовуватися дані датчика освітлення.
 
-### Camera Model Column
+**Положення камери:**
 
-The **Camera Model** column helps identify which images came from which camera:
+* Тримайте камеру над міткою так, щоб вона була по центру і займала близько 40-60% центру зображення.
+* Тримайте камеру паралельно/над поверхнею мітки
+
+**Освітлення:**
+
+* Таке саме освітлення, як у датчика освітлення DAQ.
+* Уникайте тіней на поверхнях об&#x27;єкта.
+* Не затуляйте джерело світла своїм тілом, транспортним засобом або рослинністю.
+* Похмура погода забезпечує найбільш стабільні результати.
+
+**Стан об&#x27;єкта:**
+
+* Тримайте панелі об&#x27;єкта чистими та сухими.
+* Усі 4 панелі повинні бути чітко видимими та не затуленими.
+* Об&#x27;єкти повинні бути перпендикулярними/надірними до джерела світла, якщо це можливо.
+
+### Скільки зображень об&#x27;єкта?
+
+**Мінімум:** 1 зображення цілі за сеанс. **Рекомендовано:** 3-5 зображень цілі за сеанс.
+
+**Найкращий графік:**
+
+* 3-5 зображень, зроблених незабаром після початку запису датчиком освітлення
+* Для найкращих результатів повертайте камеру між знімками
+* Опціонально: періодично в середині сеансу, якщо умови освітлення постійно змінюються
+
+***
+
+## Робота з декількома камерами
+
+### Налаштування двох камер
+
+Якщо ви використовуєте дві камери MAPIR одночасно (наприклад, Survey3W RGN + Survey3N OCN):
+
+1. Зніміть зображення об&#x27;єкта **обома камерами** одночасно.
+2. Використовуйте **один і той самий фізичний об&#x27;єкт** для обох камер.
+3. Позначте зображення об&#x27;єкта для **обох типів камер** у файловому браузері.
+4. Chloros використовуватиме відповідні об&#x27;єкти для калібрування кожної камери.
+
+### Колонка «Модель камери»
+
+Колонка **«Модель камери»** допомагає визначити, які зображення були зроблені кожною з камер:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
 * Survey3W\_RGB
-* etc.
+* тощо.
 
-Use this column to verify you've marked targets for each camera type in your project.
-
-***
-
-## Target Detection Settings
-
-### Adjusting Detection Sensitivity
-
-If Chloros isn't detecting your targets correctly, adjust these settings in [Project Settings](adjusting-project-settings.md):
-
-**Minimum calibration sample area:**
-
-* **Default**: 25 pixels
-* **Increase** if getting false detections on small artifacts
-* **Decrease** if targets aren't being detected
-
-**Minimum target clustering:**
-
-* **Default**: 60
-* **Increase** if targets are being split into multiple detections
-* **Decrease** if targets with color variation aren't fully detected
+Використовуйте цей стовпець, щоб перевірити, чи ви позначили цілі для кожного типу камери у вашому проєкті.
 
 ***
 
-## Common Target Image Issues
+## Налаштування виявлення цілей
 
-### Problem: No Targets Detected
+### Регулювання чутливості виявлення
 
-**Possible causes:**
+Якщо Chloros не виявляє ваші цілі правильно, відрегулюйте ці налаштування в [Налаштуваннях проєкту](adjusting-project-settings.md):
 
-* Target images not marked in File Browser
-* Target too small in frame (< 30% of image)
-* Poor lighting (shadows, glare)
-* Target detection settings too strict
+**Мінімальна площа зразка для калібрування:**
 
-**Solutions:**
+* **За замовчуванням**: 25 пікселів
+* **Збільште**, якщо виявляються помилкові виявлення на невеликих артефактах
+* **Зменште**, якщо цілі не виявляються
 
-1. Verify Target column is checked for correct images
-2. Review target image quality in preview
-3. Recapture targets if quality is poor
-4. Adjust target detection settings if needed
+**Мінімальне групування цілей:**
 
-### Problem: False Target Detections
-
-**Possible causes:**
-
-* White buildings, vehicles, or ground cover mistaken for targets
-* Bright patches in vegetation
-* Detection sensitivity too low
-
-**Solutions:**
-
-1. Mark only actual target images to limit detection scope
-2. Increase minimum calibration sample area
-3. Increase minimum target clustering value
-4. Ensure target images show only the target (minimal background clutter)
+* **За замовчуванням**: 60
+* **Збільште**, якщо цілі розділяються на кілька виявлень
+* **Зменште**, якщо цілі з варіацією кольорів не виявляються повністю
 
 ***
 
-## Verification Checklist
+## Поширені проблеми з зображеннями цілей
 
-Before starting processing, verify your target image selection:
+### Проблема: цілі не виявляються
 
-* [ ] At least 1 target image marked per session
-* [ ] Target column checkboxes are checked for all target images
-* [ ] Target images captured within same timeframe as survey
-* [ ] Targets clearly visible in preview when clicked
-* [ ] All 4 calibration panels visible in each target image
-* [ ] No shadows or obstructions on targets
-* [ ] For dual-camera: Targets marked for both camera types
+**Можливі причини:**
+
+* Зображення цілей не позначені в браузері файлів
+* Ціль занадто мала в кадрі (&lt; 30% зображення)
+* Погане освітлення (тіні, відблиски)
+* Надто суворі налаштування виявлення цілей
+
+**Рішення:**
+
+1. Перевірте, чи в стовпці «Ціль» позначені правильні зображення
+2. Перегляньте якість зображення цілі в попередньому перегляді
+3. Якщо якість погана, повторно зніміть цілі
+4. За потреби налаштуйте параметри виявлення цілей
+
+### Проблема: помилкове виявлення цілей
+
+**Можливі причини:**
+
+* Білі будівлі, транспортні засоби або покриття землі, які помилково сприймаються як цілі
+* Яскраві плями на рослинності
+* Занадто низька чутливість виявлення
+
+**Рішення:**
+
+1. Позначте тільки фактичні зображення цілей, щоб обмежити область виявлення
+2. Збільште мінімальну площу калібрування
+3. Збільште мінімальне значення кластеризації цілей
+4. Переконайтеся, що на зображеннях цілей відображається тільки ціль (мінімальний фоновий шум)
 
 ***
 
-## Target-Free Processing
+## Контрольний список для перевірки
 
-### Processing Without Calibration Targets
+Перед початком обробки перевірте вибір зображень цілей:
 
-While not recommended for scientific work, you can process without targets:
+* [ ] Принаймні 1 зображення цілі позначено за сесію
+* [ ] Позначки в стовпці «Ціль» встановлено для всіх зображень цілей
+* [ ] Зображення цілей зроблено в той самий проміжок часу, що й обстеження
+* [ ] Цілі чітко видно в попередньому перегляді після натискання
+* [ ] Усі 4 калібрувальні панелі видно на кожному зображенні цілі
+* [ ] На цілях немає тіней або перешкод
+* [ ] Для подвійної камери: цілі позначені для обох типів камер
 
-1. Leave all Target column checkboxes unchecked
-2. **Disable** "Reflectance calibration" in Project Settings
-3. Vignette correction will still be applied
-4. Output will not be calibrated for absolute reflectance
+***
 
-{% hint style="warning" %}
-**Not Recommended**: Without reflectance calibration, pixel values represent relative brightness only, not scientific reflectance measurements. Use calibration targets for accurate, repeatable results.
+## Обробка без цілей
+
+### Обробка без калібрувальних цілей
+
+Хоча це не рекомендується для наукової роботи, ви можете обробляти без цілей:
+
+1. Залиште всі прапорці в стовпці «Ціль» незазначеними
+2. **Вимкніть** «Калібрування відбиття» в налаштуваннях проекту
+3. Корекція віньєтки все одно буде застосована
+4. Вихідні дані не будуть калібровані для абсолютного відбиття
+
+{% hint style=&quot;warning&quot; %}
+**Не рекомендується**: без калібрування відбиття значення пікселів відображають лише відносну яскравість, а не наукові вимірювання відбиття. Використовуйте калібрувальні цілі для отримання точних, повторюваних результатів.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Наступні кроки
 
-Once you've marked your target images:
+Після того, як ви позначили цільові зображення:
 
-1. **Review your settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+1. **Перегляньте налаштування** - Див. [Налаштування проекту](adjusting-project-settings.md)
+2. **Почніть обробку** - Див. [Запуск обробки](starting-the-processing.md)
+3. **Стежте за прогресом** - Див. [Моніторинг обробки](monitoring-the-processing.md)
 
-For more information about calibration targets themselves, see [Calibration Targets](../calibration-targets.md).
+Для отримання додаткової інформації про калібрувальні мішені див. [Калібрувальні мішені](../calibration-targets.md).
