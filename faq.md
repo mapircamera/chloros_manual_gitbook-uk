@@ -5,7 +5,7 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/faq
 ---
 
-# FAQ
+# Поширені запитання
 
 <details>
 

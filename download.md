@@ -4,169 +4,165 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
 
-# Download
+# Завантажити
 
-Download the latest version of Chloros for Windows to get started with multispectral image processing.
+Завантажте останню версію Chloros для Windows, щоб розпочати роботу з обробкою мультиспектральних зображень.
 
-### System Requirements
+### Системні вимоги
 
-| Requirement          | Minimum                         | Recommended                     |
+| Вимога          | Мінімальні                         | Рекомендовані                     |
 | -------------------- | ------------------------------- | ------------------------------- |
-| **Operating System** | Windows 10 (64-bit)             | Windows 11 (64-bit)             |
-| **Processor**        | Intel Core i5 or equivalent     | Intel Core i7 or better         |
-| **Memory (RAM)**     | 8GB                             | 16GB or more                    |
-| **Graphics Card**    | DirectX 11 compatible           | NVIDIA GPU with 4GB+ VRAM       |
-| **Storage**          | 2GB free space                  | SSD with 10GB+ free space       |
-| **Display**          | 1920x1080                       | 2560x1440 or higher             |
-| **Internet**         | Required for license activation | Required for license activation |
+| **Операційна система** | Windows 10 (64-біт)             | Windows 11 (64-біт)             |
+| **Процесор**        | Intel Core i5 або еквівалентний     | Intel Core i7 або кращий         |
+| **Пам&#x27;ять (RAM)**     | 8 ГБ                             | 16 ГБ або більше                    |
+| **Відеокарта**    | Сумісна з DirectX 11           | NVIDIA GPU з 4 ГБ+ VRAM       |
+| **Накопичувач**          | 2 ГБ вільного місця                  | SSD з 10 ГБ+ вільного місця       |
+| **Дисплей**          | 1920x1080                       | 2560x1440 або вище             |
+| **Інтернет**         | Необхідний для активації ліцензії | Необхідний для активації ліцензії |
 
-{% hint style="info" %}
-**GPU Acceleration**: Chloros+ users with NVIDIA GPUs (4GB+ VRAM) can use CUDA acceleration for significantly faster processing.
+{% hint style=&quot;info&quot; %}
+**Прискорення GPU**: Користувачі Chloros+ з графічними процесорами NVIDIA (4 ГБ+ VRAM) можуть використовувати прискорення CUDA для значно швидшої обробки.
 {% endhint %}
 
 ***
 
-## Download Chloros
+## Завантажити Chloros
 
-### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Download Chloros Here</a>
+### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Завантажити Chloros тут</a>
 
-### Latest Stable Release
+### Остання стабільна версія
 
-**Chloros Installer for Windows**
+**Chloros Інсталятор для Windows**
 
-* **Version**: 1.0.3
-* **Release Date**: December ?, 2025
-* **File Size**: 1.6GB
-* **File Type**: .exe (Windows Installer)
+* **Версія**: 1.0.3
+* **Дата випуску**: грудень ?, 2025
+* **Розмір файлу**: 1,6 ГБ
+* **Тип файлу**: .exe (інсталятор Windows)
 
-#### **Installation Steps:**
+#### **Етапи встановлення:**
 
-1. Download the `CHLOROS INSTALLER - CURRENT VERSION.exe` file
-2. Double-click the installer to begin installation
-3. Follow the installation wizard prompts
-4. Choose installation directory (default: `C:\Program Files\Chloros\`)
-5. Complete installation and launch Chloros
-6. Sign in with your MAPIR Cloud Chloros+ account (or continue with free version)
+1. Завантажте файл `CHLOROS INSTALLER - CURRENT VERSION.exe`.
+2. Двічі клацніть інсталятор, щоб розпочати встановлення.
+3. Дотримуйтесь вказівок майстра встановлення.
+4. Оберіть каталог для встановлення (за замовчуванням: `C:\Program Files\Chloros\`).
+5. Завершіть встановлення та запустіть Chloros.
+6. Увійдіть за допомогою свого облікового запису MAPIR Cloud Chloros+ (або продовжуйте користуватися безкоштовною версією).
 
-{% hint style="success" %}
-The installer automatically adds `chloros-cli` to your system PATH for command-line access.
+{% hint style=&quot;success&quot; %}
+Інсталятор автоматично додає `chloros-cli` до системного PATH для доступу з командного рядка.
 {% endhint %}
 
 ***
 
-## Additional Resources
+## Додаткові ресурси
 
 ### Python SDK
 
-For developers and automation workflows, install the Chloros Python SDK:
+Для розробників та автоматизації робочих процесів встановіть Chloros Python SDK:
 
 ```bash
 pip install chloros-sdk
 ```
 
-**Documentation**: [API: Python SDK](api-python-sdk.md)
+**Документація**: [API: Python SDK](api-python-sdk.md)
 
-**Requirements**: Chloros Desktop must be installed, Chloros+ license required
-
-***
-
-## What's Included
-
-The Chloros installation includes:
-
-* ✅ **Chloros Desktop GUI** - Full-featured graphical interface
-* ✅ **Chloros (Browser)** - Web-based interface for lower-spec systems
-* ✅ **Chloros CLI** - Command-line interface (requires Chloros+ license)
-* ✅ **Backend Engine** - Image processing pipeline
-* ✅ **Camera Profiles** - Pre-configured MAPIR camera templates
+**Вимоги**: Chloros Desktop повинен бути встановлений, Chloros+ ліцензія необхідна
 
 ***
 
-## Upgrade to Chloros+
+## Що входить до комплекту
 
-Unlock advanced features with a Chloros+ subscription:
+Інсталяція Chloros включає:
 
-* 🚀 **Multi-threaded Processing** - Process images in parallel
-* ⚡ **GPU (CUDA) Acceleration** - Leverage NVIDIA GPU power
-* 💻 **CLI Access** - Automate with command-line tools
-* 🐍 **Python SDK** - Programmatic API access
-* 📱 **Multiple Devices** - Use on 2-10+ devices (plan dependent)
-* 🧮 **Custom Formulas** - Create custom multispectral indices
-
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">View Chloros+ Plans &#x26; Pricing</a></p>
+* ✅ **Chloros Desktop GUI** - Повнофункціональний графічний інтерфейс
+* ✅ **Chloros (браузер)** - Веб-інтерфейс для систем з нижчими технічними характеристиками
+* ✅ **Chloros CLI** — інтерфейс командного рядка (потрібна ліцензія Chloros+)
+* ✅ **Backend Engine** — конвеєр обробки зображень
+* ✅ **Профілі камер** - Попередньо налаштовані шаблони камер MAPIR
 
 ***
 
-## Installation Help
+## Оновлення до Chloros+
 
-### Troubleshooting
+Розблокуйте розширені функції за допомогою передплати Chloros+:
 
-**Installation fails with error message:**
+* 🚀 **Багатопотокова обробка** - Паралельна обробка зображень
+* ⚡ **Прискорення GPU (CUDA)** - Використовуйте потужність GPU NVIDIA
+* 💻 **Доступ до CLI** - Автоматизація за допомогою інструментів командного рядка
+* 🐍 **Python SDK** - Програмний доступ до API
+* 📱 **Кілька пристроїв** - Використання на 2-10+ пристроях (залежно від плану)
+* 🧮 **Налаштовані формули** - Створення налаштованих мультиспектральних індексів
 
-* Ensure you have administrator rights
-* Temporarily disable antivirus software
-* Check that you meet minimum system requirements
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Переглянути Chloros+ Плани та ціни</a></p>***
 
-**Application won't start:**
+## Допомога з інсталяцією
 
-* Try Chloros (Browser) version
-* Verify Windows 10/11 (64-bit) is installed
-* Update graphics drivers
-* Check Windows Event Viewer for error details
-* Contact support with error logs
+### Усунення несправностей
 
-**License activation issues:**
+**Інсталяція не вдається, з&#x27;являється повідомлення про помилку:**
 
-* Ensure internet connection is active
-* Verify credentials at [https://cloud.mapir.camera](https://cloud.mapir.camera)
-* Check firewall isn't blocking Chloros
-* See [Chloros+ Login](chloros+-login.md) for detailed instructions
+* Переконайтеся, що ви маєте права адміністратора
+* Тимчасово вимкніть антивірусне програмне забезпечення
+* Перевірте, чи відповідаєте ви мінімальним системним вимогам
 
-### Getting Support
+**Програма не запускається:**
 
-Need help with installation or setup?
+* Спробуйте версію Chloros (браузер)
+* Перевірте, чи встановлено Windows 10/11 (64-біт)
+* Оновіть графічні драйвери
+* Перевірте Windows Event Viewer на наявність деталей про помилку
+* Зверніться до служби підтримки з журналами помилок
 
-* 📧 **Email**: info@mapir.camera
-* 🌐 **Website**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Documentation**: [Getting Started](./)
-* ❓ **FAQ**: [Frequently Asked Questions](faq.md)
+**Проблеми з активацією ліцензії:**
+
+* Переконайтеся, що підключення до Інтернету активне
+* Перевірте облікові дані на [https://cloud.mapir.camera](https://cloud.mapir.camera)
+* Перевірте, чи брандмауер не блокує Chloros
+* Детальні інструкції див. у [Chloros+ Login](chloros+-login.md)
+
+### Отримання підтримки
+
+Потрібна допомога з інсталяцією або налаштуванням?
+
+* 📧 **Електронна пошта**: info@mapir.camera
+* 🌐 **Веб-сайт**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 📚 **Документація**: [Початок роботи](./)
+* ❓ **FAQ**: [Часті запитання](faq.md)
 
 ***
 
-## Change Log
+## Журнал змін
 
 <details>
 
-<summary>Version 1.0.3</summary>
+<summary>Версія 1.0.3</summary>
 
-### **Release Date**: December ?, 2025
+### **Дата випуску**: грудень ?, 2025
 
-#### New Features
+#### Нові функції
 
-* Initial Launch
+* Перший запуск
 
-#### Improvements
+#### Покращення
 
-* Initial Launch
+* Перший запуск
 
-#### Bug Fixes
+#### Виправлення помилок
 
-* Initial Launch
+* Перший запуск
 
-#### Known Issues
+#### Відомі проблеми
 
-* Initial Launch
+* Перший запуск
 
-</details>
+</details>***
 
-***
+## Ліцензійна угода
 
-## License Agreement
+**Пропрієтарне програмне забезпечення** - Copyright (c) 2025 MAPIR Inc.
 
-**Proprietary Software** - Copyright (c) 2025 MAPIR Inc.
+Несанкціоноване використання, розповсюдження або модифікація заборонені.
 
-Unauthorized use, distribution, or modification is prohibited.
+**Безкоштовна версія**: доступна для особистого та комерційного використання з обмеженнями функціоналу.
 
-**Free Version**: Available for personal and commercial use with feature limitations
-
-**Chloros+**: Subscription-based license for advanced features and commercial deployments
+**Chloros+**: ліцензія на основі передплати для розширених функцій та комерційного використання.
