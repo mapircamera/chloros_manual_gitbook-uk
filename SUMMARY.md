@@ -29,6 +29,8 @@
 
 ## ПЕРЕГЛЯДАЧ ЗОБРАЖЕНЬ (GUI)
 
+* [Сітка зображень](image-viewer-gui/image-grid.md)
 * [Відкриття зображення на весь екран](image-viewer-gui/opening-an-image-full-screen.md)
 * [Шари зображення](image-viewer-gui/image-layers.md)
 * [Індекс/LUT Sandbox](image-viewer-gui/index-lut-sandbox.md)
+* [Маркери на карті](image-viewer-gui/map-markers.md)
