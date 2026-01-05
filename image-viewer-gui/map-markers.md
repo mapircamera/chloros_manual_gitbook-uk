@@ -88,7 +88,7 @@
 
 Ви можете вибрати тип шару карти (зліва направо):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Рельєф
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Рельєф
 
 Показує профілі висот та фрагменти карти з деталями (дороги тощо)
 
