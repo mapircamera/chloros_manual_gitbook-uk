@@ -3,19 +3,17 @@ metaLinks: {}
 ---
 # Початок роботи
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
-
-Chloros — це програмне забезпечення від [MAPIR](https://www.mapir.camera) для обробки зображень та інших даних датчиків.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros — це програмне забезпечення від [MAPIR](https://www.mapir.camera) для обробки зображень та інших даних датчиків.
 
 ***
 
 Chloros доступний у 4 режимах застосування:
 
-## Chloros: Настільна програма з графічним інтерфейсом користувача
+## Chloros: настільна програма з графічним інтерфейсом користувача
 
 \[Рекомендовано] Окреме вікно з усіма функціями.
 
-## Chloros (браузер): Веб-інтерфейс з графічним інтерфейсом користувача
+## Chloros (браузер): веб-інтерфейс з графічним інтерфейсом користувача
 
 Працює у веб-браузері (Chrome/Edge). Найкраще підходить для повільних комп&#x27;ютерів з об&#x27;ємом відеопам&#x27;яті менше 4 ГБ.
 
@@ -31,10 +29,10 @@ Chloros доступний у 4 режимах застосування:
 
 ## Chloros+
 
-Хоча Chloros є безкоштовним для більшості завдань, ви можете виявити, що вам потрібно більше. Саме в цьому випадку вам може бути корисною платна ліцензія на Chloros+. З ліцензією Chloros+ ви можете розблокувати нові функції, такі як:
+Хоча Chloros є безкоштовним для більшості завдань, вам може знадобитися більше. Саме в цьому випадку вам може бути корисною платна ліцензія на Chloros+. З ліцензією Chloros+ ви можете отримати доступ до нових функцій, таких як:
 
 * **Багатопотокова обробка**: значно прискорює обробку зображень для великих проектів завдяки одночасній обробці зображень через конвеєр.
-* **Прискорення за допомогою GPU (CUDA)**: скористайтеся сучасними опціями пам&#x27;яті GPU з більшим об&#x27;ємом, щоб ще більше прискорити конвеєр обробки зображень. Для досягнення найкращих результатів ми рекомендуємо 4 ГБ або більше VRAM.
+* **Прискорення GPU (CUDA)**: скористайтеся сучасними опціями пам&#x27;яті GPU з більшим об&#x27;ємом, щоб ще більше прискорити конвеєр обробки зображень. Для досягнення найкращих результатів ми рекомендуємо 4 ГБ або більше VRAM.
 * **Chloros+** [**CLI**](CLI.md) **Доступ**: запустіть Chloros+ з командного рядка, щоб автоматизувати та інтегрувати у власне програмне забезпечення.
 * **Chloros+** [**API**](api-python-sdk.md) **Доступ:** запустіть Chloros+ з Python для програмного керування, що забезпечує безперебійну інтеграцію з вашими дослідницькими процесами, робочими процесами аналізу даних та власними програмами.
 * **Використання декількох пристроїв**: кожна ліцензія Chloros+ дозволяє зареєструвати 2 і більше пристроїв. Використовуйте свій обліковий запис MAPIR Cloud для управління зареєстрованими пристроями. Додайте підтримку для більшої кількості пристроїв, оновивши свою ліцензію Chloros+.
@@ -43,5 +41,13 @@ Chloros доступний у 4 режимах застосування:
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary" data-icon="envira">Chloros+ Ціни та реєстрація</a></p>
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_grid_mode.gif" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>
