@@ -1,29 +1,29 @@
 # API : Python SDK
 
-**Chloros Python SDK** забезпечує програмний доступ до механізму обробки зображень Chloros, що дозволяє автоматизувати процеси, створювати власні робочі процеси та безперешкодно інтегрувати їх у ваші додатки Python та дослідницькі конвеєри.
+**Chloros Python SDK** забезпечує програмний доступ до механізму обробки зображень Chloros, що дозволяє автоматизувати процеси, створювати власні робочі процеси та безперешкодно інтегрувати його з вашими додатками Python та дослідницькими конвеєрами.
 
-### Основні функції
+### Основні особливості
 
-* 🐍 **Нативний Python** - Чистий, Pythonic API для обробки зображень
-* 🔧 **Повний доступ до API** - Повний контроль над обробкою Chloros
-* 🚀 **Автоматизація** - Створення налаштованих робочих процесів пакетної обробки
-* 🔗 **Інтеграція** - Вбудовуйте Chloros в існуючі додатки Python
-* 📊 **Готовий до досліджень** - Ідеально підходить для наукових аналітичних конвеєрів
-* ⚡ **Паралельна обробка** - Масштабується до ваших ядер процесора (Chloros+)
+* 🐍 **Нативний Python** — чистий, написаний на Python API для обробки зображень
+* 🔧 **Повний доступ до API** — повний контроль над обробкою Chloros
+* 🚀 **Автоматизація** — створюйте власні робочі процеси пакетної обробки
+* 🔗 **Інтеграція** — вбудовуйте Chloros в існуючі Python-додатки
+* 📊 **Готовий до досліджень** — ідеально підходить для наукових аналітичних конвеєрів
+* ⚡ **Паралельна обробка** — масштабується відповідно до кількості ядер вашого процесора (Chloros+)
 
 ### Вимоги
 
 | Вимога          | Деталі                                                             |
 | -------------------- | ------------------------------------------------------------------- |
-| **Chloros Desktop**  | Повинно бути встановлено локально                                           |
+| **Chloros встановлено** | Windows: інсталятор для настільних ПК; Linux: Пакет `.deb`                  |
 | **Ліцензія**          | Chloros+ ([потрібен платний план](https://cloud.mapir.camera/pricing)) |
-| **Операційна система** | Windows 10/11 (64-біт)                                              |
+| **Операційна система** | Windows 10/11 (64-біт), Linux x86_64 (amd64), Linux arm64 (NVIDIA Jetson JetPack 6) |
 | **Python**           | Python 3.7 або вище                                                |
 | **Пам&#x27;ять**           | Мінімум 8 ГБ оперативної пам&#x27;яті (рекомендується 16 ГБ)                                  |
 | **Інтернет**         | Необхідний для активації ліцензії                                     |
 
-{% hint style=&quot;warning&quot; %}
-**Вимоги до ліцензії**: Python SDK вимагає оплаченої підписки Chloros+ для доступу до API. Стандартні (безкоштовні) плани не мають доступу до API/SDK. Відвідайте [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), щоб оновити.
+{% hint style="warning" %}
+**Вимоги до ліцензії**: Для доступу до Python SDK необхідна платна підписка Chloros+ на API. Стандартні (безкоштовні) плани не мають доступу до API/SDK. Відвідайте [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), щоб оновити.
 {% endhint %}
 
 ## Швидкий старт
@@ -36,24 +36,31 @@
 pip install chloros-sdk
 ```
 
-{% hint style=&quot;info&quot; %}
-**Перша настройка**: Перед використанням SDK активуйте свою ліцензію Chloros+, відкривши Chloros, Chloros (браузер) або Chloros CLI і увійшовши за допомогою своїх облікових даних. Це потрібно зробити лише один раз.
+{% hint style="info" %}
+**Перша настройка**: Перед використанням SDK активуйте свою ліцензію Chloros+ шляхом відкриття Chloros, Chloros (браузер) або Chloros CLI та увійшовши у систему за допомогою своїх облікових даних. Це потрібно зробити лише один раз. У Linux (без графічного інтерфейсу) використовуйте: `chloros-cli login user@example.com 'password'`
 {% endhint %}
 
 ### Основне використання
 
-Обробіть папку за допомогою декількох рядків:
+Обробіть папку всього декількома рядками:
 
 ```python
 from chloros_sdk import process_folder
 
-# One-line processing
+# One-line processing (Windows)
 results = process_folder("C:\\DroneImages\\Flight001")
+
+# One-line processing (Linux)
+results = process_folder("/home/user/drone_images/flight001")
 ```
+
+{% hint style="info" %}
+**Кросплатформені шляхи**: Приклади коду на цій сторінці використовують шляхи у стилі Windows (наприклад, `C:\\DroneImages\\Flight001`). У Linux використовуйте замість цього шляхи у форматі Linux (наприклад, `/home/user/drone_images/flight001` або `~/drone_images/flight001`). SDK працює однаково на обох платформах.
+{% endhint %}
 
 ### Повний контроль
 
-Для складних робочих процесів:
+Для розширених робочих процесів:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -65,7 +72,8 @@ chloros = ChlorosLocal()
 chloros.create_project("MyProject", camera="Survey3N_RGN")
 
 # Import images
-chloros.import_images("C:\\DroneImages\\Flight001")
+chloros.import_images("C:\\DroneImages\\Flight001")  # Windows
+# chloros.import_images("/home/user/drone_images/flight001")  # Linux
 
 # Configure settings
 chloros.configure(
@@ -80,14 +88,14 @@ chloros.process(mode="parallel", wait=True)
 
 ***
 
-## Інструкція з встановлення
+## Посібник з інсталяції
 
 ### Необхідні умови
 
-Перед встановленням SDK переконайтеся, що у вас є:
+Перед інсталяцією SDK переконайтеся, що у вас є:
 
-1. **Chloros Desktop** ([завантажити](download.md))
-2. **Python 3.7+** ([python.org](https://www.python.org))
+1. **Chloros встановлено** — Windows: інсталятор для настільних ПК ([завантажити](download.md)); Linux: Пакет `.deb` ([Встановлення](linux/linux-installation.md))
+2. **Python 3.7+** встановлено ([python.org](https://www.python.org))
 3. **Активна ліцензія Chloros+** ([оновлення](https://cloud.mapir.camera/pricing))
 
 ### Встановлення за допомогою pip
@@ -112,7 +120,7 @@ pip install chloros-sdk[dev]
 
 ### Перевірка встановлення
 
-Перевірте, чи правильно встановлено SDK:
+Перевірте, чи SDK встановлено правильно:
 
 ```python
 import chloros_sdk
@@ -125,23 +133,25 @@ print(f"Chloros SDK version: {chloros_sdk.__version__}")
 
 ### Активація ліцензії
 
-SDK використовує ту саму ліцензію, що й Chloros, Chloros (браузер) та Chloros CLI. Активуйте один раз через графічний інтерфейс або CLI:
+SDK використовує ту саму ліцензію, що й Chloros, Chloros (браузер) та Chloros CLI. Активуйте один раз через графічний інтерфейс або CLI:**Windows:**Відкрийте**Chloros або Chloros (браузер)** і увійдіть на вкладку «Користувач» <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> або скористайтеся CLI.**Linux:** Використовуйте CLI (графічний інтерфейс недоступний):
 
-1. Відкрийте **Chloros або Chloros (браузер)**і увійдіть на вкладку «Користувач» <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> . Або відкрийте**CLI**.
-2. Введіть свої облікові дані Chloros+ і увійдіть
-3. Ліцензія зберігається в локальному кеші (зберігається після перезавантаження)
+```bash
+chloros-cli login user@example.com 'your_password'
+```
 
-{% hint style=&quot;success&quot; %}
-**Одноразова настройка**: Після входу через графічний інтерфейс або CLI, SDK автоматично використовує кешовану ліцензію. Додаткова автентифікація не потрібна!
+Ліцензія зберігається в локальному кеші та зберігається після перезавантаження.
+
+{% hint style="success" %}
+**Одноразова настройка**: Після входу через графічний інтерфейс або CLI, SDK автоматично використовує збережену в кеші ліцензію. Додаткова аутентифікація не потрібна!
 {% endhint %}
 
-{% hint style=&quot;info&quot; %}
+{% hint style="info" %}
 **Вихід**: Користувачі SDK можуть програмно очистити кешовані облікові дані за допомогою методу `logout()`. Див. [метод logout()](#logout) у довіднику API.
 {% endhint %}
 
 ### Перевірка з&#x27;єднання
 
-Перевірте, чи SDK може підключитися до Chloros:
+Перевірте, чи може SDK підключитися до Chloros:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -156,7 +166,7 @@ print(f"Backend running: {status['running']}")
 
 ***
 
-## API Довідка
+## Довідка API
 
 ### Клас ChlorosLocal
 
@@ -176,29 +186,39 @@ ChlorosLocal(
 
 **Параметри:**
 
-| Параметр                 | Тип | За замовчуванням                   | Опис                           |
+| Параметр                 | Тип | Значення за замовчуванням                   | Опис                           |
 | ------------------------- | ---- | ------------------------- | ------------------------------------- |
-| `api_url`                 | str  | `"http://localhost:5000"` | URL локального Chloros бекенду          |
+| `api_url`                 | str  | `"http://localhost:5000"` | URL локального бекенду Chloros          |
 | `auto_start_backend`      | bool | `True`                    | Автоматично запускати бекенд, якщо потрібно |
-| `backend_exe`             | str  | `None` (автоматичне виявлення)      | Шлях до виконуваного файлу бекенда            |
+| `backend_exe`             | str  | `None` (автовиявлення)      | Шлях до виконуваного файлу бекенду            |
 | `timeout`                 | int  | `30`                      | Тайм-аут запиту в секундах            |
-| `backend_startup_timeout` | int  | `60`                      | Тайм-аут для запуску бекенда (секунди) |
+| `backend_startup_timeout` | int  | `60`                      | Тайм-аут запуску бекенду (секунди) |
 
 **Приклади:**
 
 ```python
-# Default (auto-start backend)
+# Default (auto-start backend, auto-detect path on Windows and Linux)
 chloros = ChlorosLocal()
 
 # Connect to running backend
 chloros = ChlorosLocal(auto_start_backend=False)
 
-# Custom backend path
+# Custom backend path (Windows)
 chloros = ChlorosLocal(backend_exe="C:/Custom/chloros-backend.exe")
 
-# Custom timeout
-chloros = ChlorosLocal(timeout=60)
+# Custom backend path (Linux)
+chloros = ChlorosLocal(backend_exe="/opt/mapir/chloros/backend/chloros-backend")
+
+# Custom timeout with longer startup (e.g., for Jetson)
+chloros = ChlorosLocal(timeout=60, backend_startup_timeout=120)
 ```
+
+{% hint style="info" %}
+**Автоматичне виявлення платформи**: SDK автоматично підбирає правильний шлях до бекенду для вашої платформи:
+* **Windows**: `C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe`
+* **Linux (.deb)**: `/usr/lib/chloros/chloros-backend`
+* **Linux (вручну)**: `/opt/mapir/chloros/backend/chloros-backend`
+{% endhint %}
 
 ***
 
@@ -213,9 +233,9 @@ chloros = ChlorosLocal(timeout=60)
 | Параметр      | Тип | Обов&#x27;язковий | Опис                                              |
 | -------------- | ---- | -------- | -------------------------------------------------------- |
 | `project_name` | str  | Так      | Назва проекту                                     |
-| `camera`       | str  | Ні       | Шаблон камери (наприклад, «Survey3N\_RGN», «Survey3W\_OCN») |
+| `camera`       | str  | Ні       | Шаблон камери (наприклад, &quot;Survey3N\_RGN&quot;, &quot;Survey3W\_OCN&quot;) |
 
-**Повертає:** `dict` - Відповідь про створення проекту**Приклад:**
+**Повертає:** `dict` — відповідь на створення проекту**Приклад:**
 
 ```python
 # Basic project
@@ -258,20 +278,20 @@ chloros.import_images("C:\\DroneImages", recursive=True)
 
 | Параметр                 | Тип | За замовчуванням                 | Опис                     |
 | ------------------------- | ---- | ----------------------- | ------------------------------- |
-| `debayer`                 | str  | «Висока якість (швидше)» | Метод дебайєризації                  |
-| `vignette_correction`     | bool | `True`                  | Увімкнути корекцію віньєтки      |
+| `debayer`                 | str  | &quot;Стандартний (Швидкий, Середня якість)&quot; | Метод дебайєру            |
+| `vignette_correction`     | bool | `True`                  | Увімкнути корекцію віньєтування      |
 | `reflectance_calibration` | bool | `True`                  | Увімкнути калібрування відбиття  |
 | `indices`                 | список | `None`                  | Індекси рослинності для розрахунку |
-| `export_format`           | str  | «TIFF (16-бітний)»         | Формат виводу                   |
+| `export_format`           | str  | &quot;TIFF (16-біт)&quot;         | Формат виводу                   |
 | `ppk`                     | bool | `False`                 | Увімкнути корекції PPK          |
 | `custom_settings`         | dict | `None`                  | Розширені налаштування        |
 
 **Формати експорту:**
 
-* `"TIFF (16-bit)"` - Рекомендовано для ГІС/фотограмметрії
-* `"TIFF (32-bit, Percent)"` - Науковий аналіз
-* `"PNG (8-bit)"` - Візуальний огляд
-* `"JPG (8-bit)"` - Стислий вихід
+* `"TIFF (16-bit)"` — Рекомендовано для ГІС/фотограмметрії
+* `"TIFF (32-bit, Percent)"` — Науковий аналіз
+* `"PNG (8-bit)"` — Візуальний огляд
+* `"JPG (8-bit)"` — Стислий вихід
 
 **Доступні індекси:**NDVI, NDRE, GNDVI, OSAVI, CIG, EVI, SAVI, MSAVI, MTVI2 та інші.**Приклад:**
 
@@ -285,7 +305,7 @@ chloros.configure(
 
 # Advanced configuration
 chloros.configure(
-    debayer="High Quality (Faster)",
+    debayer="Standard (Fast, Medium Quality)",
     vignette_correction=True,
     reflectance_calibration=True,
     ppk=True,
@@ -298,21 +318,21 @@ chloros.configure(
 
 #### `process(mode="parallel", wait=True, progress_callback=None)`
 
-Обробити зображення проекту.
+Обробка зображень проекту.
 
 **Параметри:**
 
 | Параметр           | Тип     | За замовчуванням      | Опис                               |
 | ------------------- | -------- | ------------ | ----------------------------------------- |
-| `mode`              | str      | `"parallel"` | Режим обробки: «паралельний» або «послідовний»   |
-| `wait`              | bool     | `True`       | Очікування завершення                       |
+| `mode`              | str      | `"parallel"` | Режим обробки: &quot;parallel&quot; або &quot;serial&quot;   |
+| `wait`              | bool     | `True`       | Очікувати завершення                       |
 | `progress_callback` | callable | `None`       | Функція зворотного виклику прогресу (progress, msg) |
 | `poll_interval`     | float    | `2.0`        | Інтервал опитування прогресу (секунди)   |
 
 **Повертає:** `dict` - Результати обробки
 
-{% hint style=&quot;warning&quot; %}
-**Паралельний режим**: Потрібна ліцензія Chloros+. Автоматично масштабується відповідно до ядер вашого процесора (до 16 робочих процесів).
+{% hint style="warning" %}
+**Паралельний режим**: Потрібна ліцензія Chloros+. Автоматично масштабується до ваших ядер процесора (до 16 робочих процесів).
 {% endhint %}
 
 **Приклад:**
@@ -341,7 +361,7 @@ chloros.process(wait=False)
 
 Отримати поточну конфігурацію проекту.
 
-**Повертає:** `dict` - Поточна конфігурація проекту**Приклад:**
+**Повертає:** `dict` — Поточна конфігурація проекту**Приклад:**
 
 ```python
 config = chloros.get_config()
@@ -352,21 +372,41 @@ print(config['Project Settings'])
 
 #### `get_status()`
 
-Отримати інформацію про стан бекенду.
+Отримати інформацію про стан бекенду, включаючи хід обробки для кожного потоку.
 
-**Повертає:** `dict` - Стан бекенду**Приклад:**
+**Повертає:** `dict` — стан бекенду з такою структурою:
+
+```python
+{
+    "running": True,
+    "url": "http://localhost:5000",
+    "processing": {
+        "percent": 75.0,
+        "phase": "processing"
+    },
+    "export": {
+        "percent": 50.0,
+        "phase": "exporting",
+        "active": True
+    }
+}
+```
+
+**Приклад:**
 
 ```python
 status = chloros.get_status()
 print(f"Running: {status['running']}")
 print(f"URL: {status['url']}")
+print(f"Processing: {status['processing']['percent']}%")
+print(f"Export: {status['export']['percent']}% - Active: {status['export']['active']}")
 ```
 
 ***
 
 #### `shutdown_backend()`
 
-Вимкнення бекенду (якщо він запущений SDK).
+Закриття бекенду (якщо він був запущений за допомогою SDK).
 
 **Приклад:**
 
@@ -378,16 +418,16 @@ chloros.shutdown_backend()
 
 #### `logout()`
 
-Очистити кешовані облікові дані з локальної системи.
+Очищення кешованих облікових даних з локальної системи.
 
 **Опис:**
 
 Програмно виходить із системи, видаляючи кешовані облікові дані. Це корисно для:
 * Перемикання між різними обліковими записами Chloros+
 * Очищення облікових даних в автоматизованих середовищах
-* Цілі безпеки (наприклад, видалення облікових даних перед видаленням програми)
+* З міркувань безпеки (наприклад, видалення облікових даних перед видаленням програми)
 
-**Повертає:** `dict` - Результат операції виходу з системи**Приклад:**
+**Повертає:** `dict` — результат операції виходу**Приклад:**
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -402,27 +442,27 @@ print(f"Logout successful: {result}")
 # After logout, login required via GUI/CLI/Browser before next SDK use
 ```
 
-{% hint style=&quot;info&quot; %}
-**Необхідна повторна аутентифікація**: Після виклику `logout()` необхідно знову увійти за допомогою Chloros, Chloros (браузер) або Chloros CLI перед використанням SDK.
+{% hint style="info" %}
+**Необхідна повторна автентифікація**: Після виклику `logout()` необхідно знову увійти за допомогою Chloros, Chloros (браузер) або Chloros CLI перед використанням SDK.
 {% endhint %}
 
 ***
 
-### Зручні функції
+### Функції зручності
 
 #### `process_folder(folder_path, **options)`
 
-Однорядкова зручна функція для обробки папки.
+Однорядкова функція зручності для обробки папки.
 
 **Параметри:**
 
 | Параметр                 | Тип     | За замовчуванням         | Опис                    |
 | ------------------------- | -------- | --------------- | ------------------------------ |
 | `folder_path`             | str/Path | Обов&#x27;язковий        | Шлях до папки з зображеннями     |
-| `project_name`            | str      | Автоматично згенерований  | Назва проекту                   |
+| `project_name`            | str      | Автоматично генерується  | Назва проекту                   |
 | `camera`                  | str      | `None`          | Шаблон камери                |
-| `indices`                 | list     | `["NDVI"]`      | Індекси для обчислення           |
-| `vignette_correction`     | bool     | `True`          | Увімкнути корекцію віньєтування     |
+| `indices`                 | список     | `["NDVI"]`      | Індекси для обчислення           |
+| `vignette_correction`     | лог     | `True`          | Увімкнути корекцію віньєтування     |
 | `reflectance_calibration` | bool     | `True`          | Увімкнути калібрування відбиття |
 | `export_format`           | str      | &quot;TIFF (16-біт)&quot; | Формат виводу                  |
 | `mode`                    | str      | `"parallel"`    | Режим обробки                |
@@ -457,9 +497,9 @@ results = process_folder(
 
 ***
 
-## Підтримка контекстного менеджера
+## Підтримка менеджерів контексту
 
-SDK підтримує контекстні менеджери для автоматичного очищення:
+SDK підтримує менеджери контексту для автоматичного очищення:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -477,9 +517,13 @@ with ChlorosLocal() as chloros:
 
 ## Повні приклади
 
-### Приклад 1: Основна обробка
+{% hint style="info" %}
+**Користувачі Linux**: Усі наведені нижче приклади використовують шляхи Windows. Замініть шляхи `C:\\...` на ваші шляхи Linux (наприклад,, `/home/user/...` або `~/...`). Усі функції SDK однакові на всіх платформах.
+{% endhint %}
 
-Обробка папки з типовими налаштуваннями:
+### Приклад 1: Базова обробка
+
+Обробка папки з налаштуваннями за замовчуванням:
 
 ```python
 from chloros_sdk import process_folder
@@ -494,7 +538,7 @@ print(f"Processing complete: {results}")
 
 ### Приклад 2: Налаштований робочий процес
 
-Повний контроль над процесом обробки:
+Повний контроль над конвеєром обробки:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -511,7 +555,7 @@ print(f"Imported {len(import_results.get('files', []))} images")
 
 # Configure advanced settings
 chloros.configure(
-    debayer="High Quality (Faster)",
+    debayer="Standard (Fast, Medium Quality)",
     vignette_correction=True,
     reflectance_calibration=True,
     ppk=False,
@@ -536,7 +580,7 @@ print("Processing complete!")
 
 ### Приклад 3: Пакетна обробка декількох папок
 
-Обробка декількох наборів даних про польоти:
+Обробка декількох наборів даних польотів:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -643,7 +687,7 @@ print(df)
 
 ### Приклад 5: Налаштований моніторинг прогресу
 
-Розширене відстеження прогресу з реєстрацією:
+Розширене відстеження прогресу з веденням журналу:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -682,7 +726,7 @@ logging.info("Processing complete!")
 
 ### Приклад 6: Обробка помилок
 
-Надійна обробка помилок для виробничого використання:
+Надійна обробка помилок для використання у виробничому середовищі:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -708,7 +752,7 @@ def process_safely(folder_path):
         return False, f"License error: {e}. Upgrade to Chloros+ at cloud.mapir.camera/pricing"
     
     except ChlorosBackendError as e:
-        return False, f"Backend error: {e}. Ensure Chloros Desktop is installed."
+        return False, f"Backend error: {e}. Ensure Chloros is installed (Windows installer or Linux .deb package)."
     
     except ChlorosProcessingError as e:
         return False, f"Processing error: {e}"
@@ -732,9 +776,9 @@ else:
 
 ***
 
-### Приклад 7: Управління обліковим записом і вихід із системи
+### Приклад 7: Управління обліковим записом та вихід із системи
 
-Управління обліковими даними за допомогою програм:
+Управління обліковими даними програмно:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -777,7 +821,7 @@ if switch_account():
 
 ### Приклад 8: Інструмент командного рядка
 
-Створення власного інструменту CLI за допомогою SDK:
+Створіть власний інструмент CLI за допомогою SDK:
 
 ```python
 #!/usr/bin/env python
@@ -864,7 +908,7 @@ python my_processor.py --logout
 
 ## Обробка винятків
 
-SDK надає специфічні класи винятків для різних типів помилок:
+SDK надає конкретні класи винятків для різних типів помилок:
 
 ### Ієрархія винятків
 
@@ -892,7 +936,7 @@ except ChlorosLicenseError:
     print("Chloros+ license required. Upgrade at cloud.mapir.camera/pricing")
 
 except ChlorosBackendError:
-    print("Backend failed to start. Ensure Chloros Desktop is installed.")
+    print("Backend failed to start. Ensure Chloros is installed (Windows installer or Linux .deb package).")
 
 except ChlorosProcessingError as e:
     print(f"Processing failed: {e}")
@@ -942,7 +986,7 @@ print("Processing complete!")
 
 ### Управління пам&#x27;яттю
 
-Для великих наборів даних обробляйте їх пакетами:
+Для великих наборів даних обробляйте їх партіями:
 
 ```python
 from pathlib import Path
@@ -971,36 +1015,52 @@ for i in range(0, len(images), batch_size):
 
 ### Бекенд не запускається
 
-**Проблема:** SDK не вдається запустити бекенд.**Рішення:**
+**Проблема:** SDK не може запустити бекенд**Рішення:**
 
-1. Перевірте, чи встановлено Chloros Desktop:
+1. Перевірте, чи встановлено Chloros:
 
 ```python
 import os
-backend_path = r"C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe"
+import platform
+
+# Auto-detect backend path
+if platform.system() == "Windows":
+    backend_path = r"C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe"
+else:
+    backend_path = "/usr/lib/chloros/chloros-backend"
+
 print(f"Backend exists: {os.path.exists(backend_path)}")
 ```
 
-2. Перевірте, чи брандмауер Windows не блокує
-3. Спробуйте вручну вказати шлях до бекенду:
+2. Перевірте брандмауер (Windows) або доступність портів (Linux: `lsof -i :5000`)
+3. Спробуйте вказати шлях до бекенду вручну:
 
 ```python
+# Windows
 chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
+
+# Linux
+chloros = ChlorosLocal(backend_exe="/opt/mapir/chloros/backend/chloros-backend")
 ```
 
 ***
 
 ### Ліцензія не виявлена**Проблема:** SDK попереджає про відсутність ліцензії**Рішення:**
 
-1. Відкрийте Chloros, Chloros (браузер) або Chloros CLI і увійдіть.
+1. Відкрийте Chloros, Chloros (браузер) або Chloros CLI та увійдіть у систему.
 2. Перевірте, чи ліцензія збережена в кеші:
 
 ```python
 from pathlib import Path
 import os
+import platform
 
-# Check cache location (Windows)
-cache_path = Path(os.getenv('APPDATA')) / 'Chloros' / 'cache'
+# Check cache location
+if platform.system() == "Windows":
+    cache_path = Path(os.getenv('APPDATA')) / 'Chloros' / 'cache'
+else:
+    cache_path = Path.home() / '.cache' / 'chloros'
+
 print(f"Cache exists: {cache_path.exists()}")
 ```
 
@@ -1036,7 +1096,7 @@ python -c "import sys; print(sys.path)"
 
 ***
 
-### Час очікування обробки**Проблема:** Час очікування обробки закінчився**Рішення:**
+### Тайм-аут обробки**Проблема:** Тайм-аут обробки**Рішення:**
 
 1. Збільште час очікування:
 
@@ -1045,32 +1105,38 @@ chloros = ChlorosLocal(timeout=120)  # 2 minutes
 ```
 
 2. Обробляйте менші партії
-3. Перевірте доступний простір на диску
+3. Перевірте вільний простір на диску
 4. Контролюйте системні ресурси
 
 ***
 
-### Порт вже використовується**Проблема:** Порт 5000 бекенду зайнятий**Рішення:**
+### Порт вже використовується**Проблема:** Порт бекенду 5000 зайнятий**Рішення:**
 
 ```python
 # Use different port
 chloros = ChlorosLocal(api_url="http://localhost:5001")
 ```
 
-Або знайдіть і закрийте конфліктний процес:
+Або знайдіть і закрийте конфліктуючий процес:
 
 ```powershell
-# PowerShell
+# Windows PowerShell
 Get-NetTCPConnection -LocalPort 5000
+```
+
+```bash
+# Linux
+lsof -i :5000
+kill $(lsof -t -i :5000)
 ```
 
 ***
 
 ## Поради щодо продуктивності
 
-### Оптимізація швидкості обробки
+### Оптимізуйте швидкість обробки
 
-1. **Використовуйте паралельний режим** (потрібен Chloros+)
+1. **Використовуйте паралельний режим** (потрібно Chloros+)
 
 ```python
 chloros.process(mode="parallel")  # Up to 16 workers
@@ -1089,7 +1155,7 @@ chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
 chloros.configure(indices=["NDVI"])  # Not all indices
 ```
 
-4. **Обробляйте на SSD** (а не на HDD)***
+4. **Виконуйте обробку на SSD** (а не на HDD)***
 
 ### Оптимізація пам&#x27;яті
 
@@ -1102,7 +1168,7 @@ chloros.configure(indices=["NDVI"])  # Not all indices
 
 ***
 
-### Фонове оброблення
+### Фонова обробка
 
 Звільніть Python для інших завдань:
 
@@ -1190,41 +1256,44 @@ chloros.process(progress_callback=notebook_progress)
 
 ***
 
-## FAQ
+## Поширені запитання
 
-### Питання: Чи потрібно для SDK підключення до Інтернету?
+### З: Чи потребує SDK підключення до Інтернету?
 
-**В:** Тільки для початкової активації ліцензії. Після входу через Chloros, Chloros (браузер) або Chloros CLI ліцензія кешується локально і працює в автономному режимі протягом 30 днів.***
+**Відповідь:** Тільки для початкової активації ліцензії. Після входу через Chloros, Chloros (браузер) або Chloros CLI ліцензія зберігається в локальному кеші та працює в автономному режимі протягом 30 днів.***
 
-### Питання: Чи можу я використовувати SDK на сервері без графічного інтерфейсу?**Відповідь:** Так! Вимоги:
+### З: Чи можна використовувати SDK на сервері без графічного інтерфейсу?**В:** Так! SDK працює в режимі без графічного інтерфейсу як на серверах Windows, так і на Linux.**Linux (рекомендується для бездисплейного режиму):**
+* Встановити за допомогою пакета `.deb`
+* Активувати ліцензію: `chloros-cli login user@example.com 'password'`
 
-* Windows Server 2016 або пізніша версія
-* Chloros встановлено (одноразово)
-* Ліцензія активована на будь-якому комп&#x27;ютері (кешована ліцензія скопійована на сервер)
+**Сервер Windows:**
+* Сервер Windows 2016 або пізнішої версії
+* Встановлено Chloros (одноразово)
+* Ліцензія активована через CLI або на будь-якому комп&#x27;ютері
 
 ***
 
 ### Питання: У чому різниця між Desktop, CLI та SDK?
 
-| Функція         | Desktop GUI | CLI Командний рядок | Python SDK  |
+| Функція         | Графічний інтерфейс Desktop | Командний рядок CLI | Python SDK  |
 | --------------- | ----------- | ---------------- | ----------- |
-| **Інтерфейс**   | Покажчик миші | Команда          | Python API  |
-| **Найкраще підходить для**    | Візуальної роботи | Скриптів        | Інтеграції |
-| **Автоматизація**  | Обмежена     | Хороша             | Відмінна   |
-| **Гнучкість** | Базова       | Хороша             | Максимальна     |
+| **Інтерфейс**   | «Точка-клац» | Команда          | Python API  |
+| **Найкраще підходить для**    | Візуальної роботи | Скриптування        | Інтеграції |
+| **Автоматизація**  | Обмежена     | Добра             | Відмінна   |
+| **Гнучкість** | Базова       | Добра             | Максимальна     |
 | **Ліцензія**     | Chloros+    | Chloros+         | Chloros+    |***
 
 ### Питання: Чи можу я розповсюджувати програми, створені за допомогою SDK?**Відповідь:** Код SDK можна інтегрувати у ваші програми, але:
 
-* Кінцевим користувачам потрібно встановити Chloros
-* Кінцевим користувачам потрібні активні ліцензії Chloros+
-* Для комерційного розповсюдження потрібна ліцензія OEM.
+* Кінцеві користувачі повинні мати встановлений Chloros
+* Кінцеві користувачі повинні мати активні ліцензії Chloros+
+* Для комерційного розповсюдження потрібна ліцензія OEM
 
-Зверніться до info@mapir.camera з питаннями щодо OEM.
+Зверніться до info@mapir.camera з питань щодо ліцензій OEM.
 
 ***
 
-### Питання: Як оновити SDK?
+### Питання: Як оновлювати SDK?
 
 ```bash
 pip install --upgrade chloros-sdk
@@ -1234,7 +1303,7 @@ pip install --upgrade chloros-sdk
 
 ### Питання: Де зберігаються оброблені зображення?
 
-За замовчуванням, у шляху до проекту:
+За замовчуванням — у шляху до проекту:
 
 ```
 
@@ -1245,21 +1314,27 @@ Project_Path/
 
 ***
 
-### Питання: Чи можна обробляти зображення за допомогою скриптів Python, що виконуються за розкладом?**Відповідь:** Так! Використовуйте планувальник завдань Windows із скриптами Python:
+### Питання: Чи можна обробляти зображення за допомогою скриптів Python, що виконуються за розкладом?**Відповідь:** Так! Використовуйте планувальник ОС зі скриптами Python:
 
 ```python
 # scheduled_processing.py
 from chloros_sdk import process_folder
 
 # Process today's flights
-results = process_folder("C:\\Flights\\Today")
+results = process_folder("/data/flights/today")  # Linux
+# results = process_folder("C:\\Flights\\Today")  # Windows
 ```
 
-Заплануйте щоденне виконання за допомогою планувальника завдань.
+**Windows:** Налаштуйте щоденне виконання через Планувальник завдань.**Linux:** Налаштуйте через cron:
+
+```cron
+# Run at 2 AM daily
+0 2 * ** /usr/bin/python3 /home/user/scheduled_processing.py >> /var/log/chloros.log 2>&1
+```
 
 ***
 
-### Питання: Чи підтримує SDK асинхронний/очікуючий режим?**Відповідь:** Поточна версія є синхронною. Для асинхронної роботи використовуйте `wait=False` або запустіть в окремому потоці:
+### Питання: Чи підтримує SDK async/await?**Відповідь:** Поточна версія є синхронною. Для асинхронної роботи використовуйте `wait=False` або запускайте в окремому потоці:
 
 ```python
 import threading
@@ -1275,7 +1350,7 @@ thread.start()
 
 ***
 
-### Питання: Як перемикатися між різними обліковими записами Chloros+?**Відповідь:** Використовуйте метод `logout()`, щоб очистити кешовані облікові дані, а потім знову увійдіть за допомогою нового облікового запису:
+### Питання: Як перемикатися між різними обліковими записами Chloros+?**Відповідь:** Використовуйте метод `logout()` для очищення кешованих облікових даних, а потім увійдіть знову з новим обліковим записом:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -1287,7 +1362,7 @@ chloros.logout()
 # Re-login via Chloros, Chloros (Browser), or Chloros CLI with new account
 ```
 
-Після виходу з облікового запису пройдіть аутентифікацію за допомогою нового облікового запису через графічний інтерфейс, браузер або CLI, перш ніж знову використовувати SDK.
+Після виходу з системи пройдіть автентифікацію за допомогою нового облікового запису через графічний інтерфейс, браузер або CLI, перш ніж знову використовувати SDK.
 
 ***
 
@@ -1303,12 +1378,12 @@ chloros.logout()
 * **Веб-сайт**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * **Ціни**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
 
-### Приклад коду
+### Приклади коду
 
-Усі наведені тут приклади перевірені та готові до використання. Скопіюйте їх та адаптуйте до своїх потреб.
+Усі наведені тут приклади перевірені та готові до використання у виробництві. Скопіюйте та адаптуйте їх для своїх потреб.
 
 ***
 
-## Ліцензія**Пропрієтарне програмне забезпечення** - Copyright (c) 2025 MAPIR Inc.
+## Ліцензія**Пропрієтарне програмне забезпечення** — Copyright (c) 2025 MAPIR Inc.
 
 SDK вимагає активної підписки на Chloros+. Несанкціоноване використання, розповсюдження або модифікація заборонені.
