@@ -197,7 +197,9 @@ pip install chloros-sdk
 * **🐻 Удосконалений метод дебейєрингу з урахуванням текстури** — високоякісний дебейєринг з урахуванням контурів у поєднанні з моделлю шумозаглушення на основі штучного інтелекту та машинного навчання, що усуває майже весь шум, пов’язаний з дебейєрингом.
 * 🧮 **Власні формули** — створення власних мультиспектральних індексів
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Переглянути тарифи та ціни на Chloros+</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Переглянути тарифи та ціни на Chloros+</a></p>
+
+***
 
 ## Допомога з інсталяцією
 
@@ -238,7 +240,9 @@ pip install chloros-sdk
 * 📧 **Електронна пошта**: info@mapir.camera
 * 🌐 **Веб-сайт**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Документація**: [Початок роботи](./)
-* ❓ **FAQ**: [Поширені запитання](faq.md)***
+* ❓ **FAQ**: [Поширені запитання](faq.md)
+
+***
 
 ## Оновлення програмного забезпечення
 
